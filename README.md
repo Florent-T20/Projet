@@ -1,6 +1,8 @@
 # Projet
 Yo les gars, mettez les informations importantes et utiles ici.
 
+Renommez aussi le titre svp 🙏
+
 # Dossiers
 - images : mettre seulement les images (.png, .jpg, .jpeg etc)
 
