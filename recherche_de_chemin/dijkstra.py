@@ -92,8 +92,6 @@ for node, co in node_coords.items():
 
 ############################################################################################
 
-# This function returns a matrix of NxN integers
-# They correspond to the lengths of the shortest paths between every pair of nodes
 def dijkstra(graph, start):
     # Nombre de nœuds dans le graphe
     n = len(graph)
@@ -217,16 +215,13 @@ print("Enregistrement de l'image avec tous les noeuds terminé.")
 
 
 print("Début conversion dictionnaire distance_matrix en matrice.")
-# Convertir en matrice (tableau 2D) avec NumPy
-# Étape 1 : Extraire les valeurs du dictionnaire (sans ajuster les tailles)
 matrix = list(distance_matrix.values())
 dist = []
-# Étape 2 : Afficher la matrice
 for row in matrix:
     dist.append(row)
 print("Fin.")
 
-# on applique floyd warshall sur la matrice et on affiche le résultat du pcc de 1 à 45
+
 print("Début algorithme de recherche.")
 (result, routes) = dijkstra(dist, 1)
 print("Fin.")
