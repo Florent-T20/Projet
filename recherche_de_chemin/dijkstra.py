@@ -1,17 +1,18 @@
 from PIL import Image, ImageDraw
-from time import sleep
 import heapq
 import re
 import math
+import sys
 
 
 def calculate_distance(coord1, coord2):
     return math.sqrt((coord2[0] - coord1[0]) ** 2 + (coord2[1] - coord1[1]) ** 2)
 
-
+# variables globales
 distance_matrix = {}
 node_info = {}
 node_coords = {}
+image_path = "carte.jpg"
 
 
 with open('données_carte.txt', 'r', encoding='utf-8') as file:
@@ -88,33 +89,48 @@ def draw_shortest_path(image_path, output_path, coords, path):
     image.show()
 
 
-image_path = "carte.jpg"
-image = Image.open(image_path)
-draw = ImageDraw.Draw(image)
+# Ajoutez la fonction principale modifiée pour accepter les arguments
+def main(depart_nom, arrivee_nom):
+    # Trouver les nœuds de départ et d'arrivée en fonction des noms donnés
+    depart, arrivee = None, None
+    for node, description in node_info.items():
+        if depart_nom in description:
+            depart = node
+        elif arrivee_nom in description:
+            arrivee = node
 
-for node, neighbors in distance_matrix.items():
-    x1, y1 = node_coords[node]
-    for neighbor, _ in neighbors:
-        x2, y2 = node_coords[neighbor]
-        draw.line((x1, y1, x2, y2), fill="red", width=2)
+    if depart is None or arrivee is None:
+        print("Départ ou arrivée non trouvé.")
+        return
+    
+    # Exécuter l'algorithme de Dijkstra
+    matrix = list(distance_matrix.values())
+    dist = []
+    for row in matrix:
+        dist.append(row)
 
-output_path = "output/tout_voisin_carte.jpg"
-image.save(output_path)
-image.show()
+    _, routes = dijkstra(dist, depart)
 
-matrix = list(distance_matrix.values())
-dist = []
-for row in matrix:
-    dist.append(row)
+    # Reconstituer le chemin
+    chemin = []
+    node = arrivee
+    while node != depart:
+        chemin.append(node)
+        node = routes[node - 1]
+    chemin.append(depart)
+    chemin.reverse()
 
-(result, routes) = dijkstra(dist, 1)
+    # Dessiner le chemin et enregistrer l'image
+    draw_shortest_path("carte.jpg", "output/chemin_personnalise.jpg", node_coords, chemin)
+    print("Chemin généré : output/chemin_personnalise.jpg")
 
-chemin = []
-node = 50  # noeud d'arrivée
-while node != 1:  # 1 est le nœud de départ
-    chemin.append(node)
-    node = routes[node-1]
-chemin.append(1)
-chemin.reverse()
 
-draw_shortest_path(image_path, "output/chemin_n1_vers_n_carte.jpg", node_coords, chemin)
+if __name__ == "__main__":
+    # Récupérer les arguments depuis la ligne de commande
+    if len(sys.argv) == 3:
+        depart_nom = sys.argv[1]
+        arrivee_nom = sys.argv[2]
+        main(depart_nom, arrivee_nom)
+    else:
+        print("Usage : python3 dijkstra.py <nom_de_depart:string> <nom_d_arrivee:string>")
+
