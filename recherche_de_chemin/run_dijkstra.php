@@ -3,7 +3,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $depart = escapeshellarg($_POST["depart"]);
     $arrivee = escapeshellarg($_POST["arrivee"]);
     
-    // Exécutez le script Python avec les arguments utilisateur
+    // script Python avec les arguments utilisateur
     $commande = "C:\Users\mathy\AppData\Local\Programs\Python\Python313\python.exe .\dijkstra.py $depart $arrivee 2>&1";
     $output = shell_exec($commande);
 
