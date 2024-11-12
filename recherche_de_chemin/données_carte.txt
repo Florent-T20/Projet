@@ -34,7 +34,7 @@
 34 : (935,421) - Saïmiri, Plateau des jeux - [79,74]
 35 : (1206,393) - Intersection - [33,81,82,80]
 36 : (1428,438) - Intersection, Cigogne, Marabout - [81,37,50]
-37 : (1382,508) - Intersection, Cigogne, Marabout - [36,38]
+37 : (1382,508) - Intersection, Cigogne, Marabout - [36,38,40]
 38 : (1309,521) - Tente pédagogique, Zèbre - [39,37]
 39 : (1251,603) - Hyène - [20,38,83]
 40 : (1435,628) - Intersection - [41,37,43]
