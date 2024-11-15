@@ -272,3 +272,46 @@ header {
     width: 5%;
     border-radius: 50%;
 }
+
+
+/* Conteneur du menu avec sous-menu */
+.menu-item {
+    position: relative;
+
+}
+
+/* Sous-menu caché par défaut */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 0 0 10 px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.submenu li {
+    width: 100%;
+}
+
+.submenu li a {
+    padding: 10px;
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.submenu li a:hover {
+    background-color: #555;
+}
+
+/* Afficher le sous-menu au survol */
+.menu-item:hover .submenu {
+    display: block;
+}
