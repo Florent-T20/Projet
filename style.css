@@ -1,3 +1,4 @@
+/* Ne pas modifier jusqu'à .image1 */
 * {
     margin: 0;
     padding: 0;
@@ -5,15 +6,17 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body {
+.F {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background:  no-repeat;
-    background: url('images/PLANS-DU-PARC-2024-WEB-FR-1.jpg');
     background-size: cover;
     background-position: center;
+}
+
+body {
+    background-color: beige;
 }
 
 header {
@@ -22,7 +25,7 @@ header {
     left: 0;
     width: 100%;
     padding: 20px 100px;
-    background: green;
+    background: rgb(0, 111, 128);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -84,7 +87,7 @@ header {
 }
 
 .wrapper {
-    position: relative;
+    position: fixed;
     width: 400px;
     height: 440px;
     background: transparent;
@@ -98,6 +101,7 @@ header {
     overflow: hidden;
     transform: scale(0);
     transition: transform .5s ease, height .2s ease;
+    z-index: 1;
 }
 
 .wrapper.active-popup {
@@ -254,4 +258,17 @@ header {
 
 .login-register p a:hover {
     text-decoration: underline;
+}
+
+/* Page principale (modifications possibles) */
+.image1 {
+    margin-top: -675px;
+    position: relative;
+    width: 100%;
+    z-index: 0;
+}
+
+.image2 {
+    width: 5%;
+    border-radius: 50%;
 }

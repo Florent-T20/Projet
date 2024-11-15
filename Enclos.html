@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Enclos2.css">
+    <script src="Enclos3.js" defer></script>
+    <title>Les enclos du Parc animalier</title>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="custom-slider fade">
+            <div class="slide-index">1/3</div>
+            <img class="slide-img" src="images/Guépard.jpg">
+            <div class="slide-text">Le guépard peut atteindre les 120 km/h</div>
+        </div>
+        <div class="custom-slider fade">
+            <div class="slide-index">2/3</div>
+            <img class="slide-img" src="images/Léopard.jpg">
+            <div class="slide-text">Le léopard hisse ses proies dans les arbres pour les protéger des autres prédateurs</div>
+        </div>
+        <div class="custom-slider fade">
+            <div class="slide-index">3/3</div>
+            <img class="slide-img" src="images/Hyène.jpg">
+            <div class="slide-text">Les hyènes ont un comportement social très complexes qui se rapproche de celui des primates</div>
+        </div>
+        <a class="prev" onclick="plusSlides(-1)"><</a>
+        <a class="next" onclick="plusSlides(1)">></a>
+    </div>
+<br>
+<div class="slide-dot">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+</body>
+</html>
