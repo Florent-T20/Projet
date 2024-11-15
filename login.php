@@ -3,6 +3,8 @@
 // crée une session ou restaure celle trouvée sur le serveur, via l'identifiant de session passé dans une requête GET, POST ou par un cookie.
 session_start();
 
+$message = "";
+
 // Connexion à la base de données
 $host = 'localhost';
 $dbname = 'projet_web_2425';
@@ -30,9 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user'] = $user['username'];
-            echo "Connexion réussie. Bienvenue, " . htmlspecialchars($user['username']) . "!";
+            $message = "Connexion réussie. Bienvenue, " . htmlspecialchars($user['username']) . "!";
         } else {
-            echo "Erreur : Email ou mot de passe incorrect.";
+            $message = "Erreur : Email ou mot de passe incorrect.";
         }
 
     } elseif (isset($_POST['register'])) {
@@ -54,18 +56,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'email' => $email,
                     'password' => $hashedPassword
                 ]);
-                echo "Inscription réussie. Vous pouvez maintenant vous connecter.";
+                $message = "Inscription réussie. Vous pouvez maintenant vous connecter.";
             } catch (PDOException $e) {
                 if ($e->getCode() == 23000) {
-                    echo "Erreur : L'email ou le nom d'utilisateur est déjà utilisé.";
+                    $message = "Erreur : L'email ou le nom d'utilisateur est déjà utilisé.";
                 } else {
-                    echo "Erreur lors de l'inscription : " . $e->getMessage();
+                    $message = "Erreur lors de l'inscription : " . $e->getMessage();
                 }
             }
         } else {
-            echo "Erreur : Veuillez entrer des informations valides.";
+            $message = "Erreur : Veuillez entrer des informations valides.";
         }
     }
 }
 
+if (!empty($message)):
+    echo htmlspecialchars($message);
+endif;
 ?>
