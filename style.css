@@ -15,6 +15,10 @@
     background-position: center;
 }
 
+body {
+    background-color: beige;
+}
+
 header {
     position: fixed;
     top: 0;
