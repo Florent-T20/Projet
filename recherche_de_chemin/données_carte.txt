@@ -1,6 +1,6 @@
 1 : (570,841) - Accès parc - [2,3]
 2 : (363, 624) - Entrée/sortie parc, Accueil billeterie, Boutique, Poste de secours, Restaurant du parc - [1,3,4]
-3 : (260,813) - Toilettes, Petit café - [1,2,75]
+3 : (260,813) - Toilettes, Petit café, Python, Iguane, Tortue - [1,2,75]
 4 : (539,504) - Gare des cascades, Panthère - [2,6,60,5]
 5 : (497,451) - Ara perroquet, Grand hocco - [4]
 6 : (567,651) - Intersection - [4,100,101]
