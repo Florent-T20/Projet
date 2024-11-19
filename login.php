@@ -1,8 +1,10 @@
 <?php
 
-// crée une session ou restaure celle trouvée sur le serveur, via l'identifiant de session passé dans une requête GET, POST ou par un cookie.
-session_start();
+// session lancée
+require_once('back/access.php');
+$_SESSION['role'] = "guest";
 
+// Message d'information pour l'utilisateur
 $message = "";
 
 // Connexion à la base de données
@@ -31,10 +33,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($user && password_verify($password, $user['password'])) {
-            $_SESSION['user'] = $user['username'];
+            // Stockage des informations dans la session
+            $_SESSION['user_id'] = $user['user_id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['role'] = $user['role']; // 'user' ou 'admin'
             $message = "Connexion réussie. Bienvenue, " . htmlspecialchars($user['username']) . "!";
         } else {
-            $message = "Erreur : Email ou mot de passe incorrect.";
+            $message = "Erreur : Nom d'utilisateur ou mot de passe incorrect.";
         }
 
     } elseif (isset($_POST['register'])) {
@@ -70,7 +75,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+// Gestion des utilisateurs non connectés
+if (!isset($_SESSION['user_id'])) {
+    $_SESSION['role'] = 'guest'; // Par défaut : invité
+}
+
 if (!empty($message)):
     echo htmlspecialchars($message);
 endif;
+
 ?>
