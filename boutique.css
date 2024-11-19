@@ -1,0 +1,112 @@
+h1 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  
+  #cart-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  #cart-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Section des offres */
+  .offers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+  }
+  
+  .offer {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin: 15px;
+    width: 250px;
+    text-align: center;
+  }
+  
+  .offer img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .offer h3 {
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  .offer .price {
+    font-size: 1.5em;
+    color: #007BFF;
+    margin: 10px 0;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  
+  /* Panier */
+  #cart {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #cart ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #cart-items li {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+  }
+  
+  #cart-total {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  
+  #checkout-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    width: 100%;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  #checkout-btn:hover {
+    background-color: #0056b3;
+  }
+  
