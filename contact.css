@@ -47,3 +47,45 @@ form .corps-formulaire .gauche .groupe ion-icon {
     padding: 9px 8px;
     color: #747cdf;
 }
+
+form .corps-formulaire .droite {
+    margin-left: 40px;
+}
+
+form .corps-formulaire .droite .groupe{
+    height: 100%;
+}
+
+form .corps-formulaire .droite .groupe textarea{
+    margin-top: 5px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border: 2px solid #747cdf;
+    outline: none;
+    border-radius: 5px;
+    resize: none;
+    height: 82%;
+}
+
+form .pied-formulaire button {
+    margin-top: 10px;
+    background-color: #747cdf;
+    color: #fff;
+    font-size: 15px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+form .pied-formulaire button:hover {
+    transform: scale(1.05);
+}
+
+@media screen and (max-width:920px) {
+    form .corps-formulaire .droite {
+        margin-left: 40px;
+    }
+}
