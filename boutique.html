@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equive="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <!-- laisser style en dehors du dossier pour le moment -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="boutique.css">
+</head>
+
+<body>
+
+    <!-- Ne pas modifier cette div -->
+<div class="F">
+    <!-- Haut de page -->
+    <header>
+        <img src="images/craiyon.png" class="image2">
+        <nav class="navigation">
+            <a href="Projet.html">Home</a>
+            <a href="animaux.html">Animaux</a>
+            <span class="menu-item">
+                <a href="services.html">Services</a>
+                <ul class="submenu">
+                    <li><a href="#">Boutique</a></li>
+                    <li><a href="gare.html">Gare</a></li>
+                    <li><a href="logement.html">Logement</a></li>
+                </ul>
+            </span>
+            <a href="contact.html">Contact</a>
+            <a href="avis.html">Avis</a>
+            <button id="cart-button">Panier</button>
+            <a href="profil.html">Profil</a>
+            <button class="btnLogin-popup">Login</button>
+        </nav>
+    </header>
+
+    <!-- LoginRegister -->
+    <div class="wrapper">
+        <span class="icon-close">
+            <ion-icon name="close"></ion-icon>
+        </span>
+
+        <!-- Formulaire de Login -->
+        <div class="form-box login">
+            <h2>Login</h2>
+            <form action="login.php" method="POST">
+                <input type="hidden" name="login" value="1">
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="text" name="username" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox" name="remember">Remember me</label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="login-register">
+                    <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Formulaire d'Enregistrement -->
+        <div class="form-box register">
+            <h2>Registration</h2>
+            <form action="login.php" method="POST">
+                <input type="hidden" name="register" value="1">
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </span>
+                    <input type="text" name="username" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="email" name="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox" name="terms">I agree to the terms & conditions</label>
+                </div>
+                <button type="submit" class="btn">Register</button>
+                <div class="login-register">
+                    <p>Already have an account? <a href="#" class="login-link">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+</div>
+
+<section class="offers">
+    <div class="offer" data-id="1">
+      <h3>Offre 1</h3>
+      <p>Produit description ici.</p>
+      <span class="price">€19.99</span>
+      <button class="add-to-cart">Ajouter au panier</button>
+    </div>
+
+    <div class="offer" data-id="2">
+      <h3>Offre 2</h3>
+      <p>Produit description ici.</p>
+      <span class="price">€29.99</span>
+      <button class="add-to-cart">Ajouter au panier</button>
+    </div>
+
+    <div class="offer" data-id="3">
+      <h3>Offre 3</h3>
+      <p>Produit description ici.</p>
+      <span class="price">€9.99</span>
+      <button class="add-to-cart">Ajouter au panier</button>
+    </div>
+
+    <div class="offer" data-id="4">
+      <h3>Offre 4</h3>
+      <p>Produit description ici.</p>
+      <span class="price">€49.99</span>
+      <button class="add-to-cart">Ajouter au panier</button>
+    </div>
+
+    <div class="offer" data-id="5">
+      <h3>Offre 5</h3>
+      <p>Produit description ici.</p>
+      <span class="price">€39.99</span>
+      <button class="add-to-cart">Ajouter au panier</button>
+    </div>
+
+    <div class="offer" data-id="6">
+        <h3>Offre 6</h3>
+        <p>Produit description ici.</p>
+        <span class="price">€19.99</span>
+        <button class="add-to-cart">Ajouter au panier</button>
+      </div>
+  
+      <div class="offer" data-id="7">
+        <h3>Offre 7</h3>
+        <p>Produit description ici.</p>
+        <span class="price">€29.99</span>
+        <button class="add-to-cart">Ajouter au panier</button>
+      </div>
+  
+      <div class="offer" data-id="8">
+        <h3>Offre 8</h3>
+        <p>Produit description ici.</p>
+        <span class="price">€9.99</span>
+        <button class="add-to-cart">Ajouter au panier</button>
+      </div>
+  
+      <div class="offer" data-id="9">
+        <h3>Offre 9</h3>
+        <p>Produit description ici.</p>
+        <span class="price">€49.99</span>
+        <button class="add-to-cart">Ajouter au panier</button>
+      </div>
+  
+      <div class="offer" data-id="10">
+        <h3>Offre 10</h3>
+        <p>Produit description ici.</p>
+        <span class="price">€39.99</span>
+        <button class="add-to-cart">Ajouter au panier</button>
+      </div>
+
+      <div class="offer" data-id="11">
+        <img src="https://via.placeholder.com/150" alt="Offre 11">
+        <h3>Offre 11</h3>
+        <p>Produit description ici.</p>
+        <span class="price">€19.99</span>
+        <button class="add-to-cart">Ajouter au panier</button>
+      </div>
+  
+      <div class="offer" data-id="12">
+        <img src="https://via.placeholder.com/150" alt="Offre 12">
+        <h3>Offre 12</h3>
+        <p>Produit description ici.</p>
+        <span class="price">€29.99</span>
+        <button class="add-to-cart">Ajouter au panier</button>
+      </div>
+  
+      <div class="offer" data-id="13">
+        <img src="https://via.placeholder.com/150" alt="Offre 13">
+        <h3>Offre 13</h3>
+        <p>Produit description ici.</p>
+        <span class="price">€9.99</span>
+        <button class="add-to-cart">Ajouter au panier</button>
+      </div>
+  
+      <div class="offer" data-id="14">
+        <img src="https://via.placeholder.com/150" alt="Offre 14">
+        <h3>Offre 14</h3>
+        <p>Produit description ici.</p>
+        <span class="price">€49.99</span>
+        <button class="add-to-cart">Ajouter au panier</button>
+      </div>
+  
+      <div class="offer" data-id="15">
+        <img src="https://via.placeholder.com/150" alt="Offre 15">
+        <h3>Offre 15</h3>
+        <p>Produit description ici.</p>
+        <span class="price">€39.99</span>
+        <button class="add-to-cart">Ajouter au panier</button>
+      </div>
+
+      <div class="offer" data-id="16">
+        <img src="https://via.placeholder.com/150" alt="Offre 16">
+        <h3>Offre 16</h3>
+        <p>Produit description ici.</p>
+        <span class="price">€19.99</span>
+        <button class="add-to-cart">Ajouter au panier</button>
+      </div>
+  
+      <div class="offer" data-id="17">
+        <img src="https://via.placeholder.com/150" alt="Offre 17">
+        <h3>Offre 17</h3>
+        <p>Produit description ici.</p>
+        <span class="price">€29.99</span>
+        <button class="add-to-cart">Ajouter au panier</button>
+      </div>
+  
+      <div class="offer" data-id="18">
+        <img src="https://via.placeholder.com/150" alt="Offre 18">
+        <h3>Offre 18</h3>
+        <p>Produit description ici.</p>
+        <span class="price">€9.99</span>
+        <button class="add-to-cart">Ajouter au panier</button>
+      </div>
+  
+      <div class="offer" data-id="4">
+        <img src="https://via.placeholder.com/150" alt="Offre 19">
+        <h3>Offre 19</h3>
+        <p>Produit description ici.</p>
+        <span class="price">€49.99</span>
+        <button class="add-to-cart">Ajouter au panier</button>
+      </div>
+  
+      <div class="offer" data-id="20">
+        <img src="https://via.placeholder.com/150" alt="Offre 20">
+        <h3>Offre 20</h3>
+        <p>Produit description ici.</p>
+        <span class="price">€39.99</span>
+        <button class="add-to-cart">Ajouter au panier</button>
+      </div>
+
+
+  </section>
+
+  <!-- Le panier qui est caché par défaut -->
+  <div id="cart" class="hidden">
+    <h2>Panier</h2>
+    <ul id="cart-items">
+      <!-- Les articles ajoutés seront listés ici -->
+    </ul>
+    <p>Total: <span id="cart-total">€0.00</span></p>
+    <button id="checkout-btn">Passer à la caisse</button>
+  </div>
+
+    <script src="script.js"></script>
+    <script src="scripts.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

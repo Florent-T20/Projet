@@ -9,6 +9,7 @@
     <title>Contact</title>
     <!-- laisser style en dehors du dossier pour le moment -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
 </head>
 
 <body>
@@ -21,13 +22,22 @@
         <nav class="navigation">
             <a href="Projet.html">Home</a>
             <a href="animaux.html">Animaux</a>
-            <a href="services.html">Services</a>
+            <span class="menu-item">
+                <a href="services.html">Services</a>
+                <ul class="submenu">
+                    <li><a href="boutique.html">Boutique</a></li>
+                    <li><a href="gare.html">Gare</a></li>
+                    <li><a href="logement.html">Logement</a></li>
+                </ul>
+            </span>
             <a href="contact.html">Contact</a>
             <a href="avis.html">Avis</a>
             <a href="profil.html">Profil</a>
             <button class="btnLogin-popup">Login</button>
         </nav>
     </header>
+
+    
 
     <!-- LoginRegister -->
     <div class="wrapper">
@@ -104,6 +114,42 @@
 
     
 </div>
+
+<form>
+
+    <h1>Contactez-nous</h1>
+    <div class="separation"></div>
+    <div class="corps-formulaire">
+        <div class="gauche">
+            <div class="groupe">
+                <label>Votre prénom</label>
+                <input type="text">
+                <ion-icon name="person"></ion-icon>
+            </div>
+            <div class="groupe">
+                <label>Votre adresse e-mail</label>
+                <input type="text">
+                <ion-icon name="mail"></ion-icon>
+            </div>
+            <div class="groupe">
+                <label>Votre téléphone</label>
+                <input type="text">
+                <ion-icon name="phone-portrait"></ion-icon>
+            </div>
+        </div>
+        <div class="droite">
+            <div class="groupe">
+                <label>Message</label>
+                <textarea ></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="pied-formulaire" align="center">
+        <button>Envoyer le message</button>
+    </div>
+
+</form>
 
     <script src="script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

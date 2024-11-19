@@ -1,0 +1,49 @@
+form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+form h1 {
+    font-size: 20px;
+}
+
+form .separation {
+    width: 100%;
+    height: 1px;
+    background-color: #747cdf;
+}
+
+form .corps-formulaire {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+form .corps-formulaire .groupe {
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+form .corps-formulaire .gauche .groupe input {
+    margin-top: 5px;
+    padding: 10px 5px 10px 30px;
+    border: 1px solid #c9c9c9;
+    outline-color: #747cdf;
+    border-radius: 5px;
+}
+
+form .corps-formulaire .gauche .groupe ion-icon {
+    position: absolute;
+    left: 0;
+    top: 25px;
+    padding: 9px 8px;
+    color: #747cdf;
+}
