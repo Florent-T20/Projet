@@ -17,6 +17,7 @@
     </form>
 
     <?php
+    
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $depart = escapeshellarg($_POST["depart"]);
         $arrivee = escapeshellarg($_POST["arrivee"]);

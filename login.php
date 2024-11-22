@@ -82,6 +82,7 @@ if (!isset($_SESSION['user_id'])) {
 
 if (!empty($message)):
     echo htmlspecialchars($message);
+    echo "<br><a href='Projet.html'>Retourner à la page d'accueil</a>";
 endif;
 
 ?>
