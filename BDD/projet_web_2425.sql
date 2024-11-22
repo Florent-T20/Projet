@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 19 nov. 2024 à 15:07
+-- Généré le : ven. 22 nov. 2024 à 10:30
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -58,7 +58,7 @@ INSERT INTO `animals` (`animal_id`, `name`, `species`, `age`, `enclosure_id`) VA
 (13, 'Maria', 'Daim', 3, 13),
 (14, 'Becamerde', 'Nilgaut', 2, 13),
 (15, 'Oeil percé', 'Loup d\'\'Europe', 3, 14),
-(16, 'Griffe sanglante', 'Loup d\'\'Europe', 4, 14),
+(16, 'Warwick', 'Loup d\'\'Europe', 4, 14),
 (17, 'Pauline', 'Cigogne', 1, 15),
 (18, 'Mohamed', 'Marabout', 3, 15),
 (19, 'Patatartiné', 'Oryx algazelle', 2, 16),
@@ -109,7 +109,7 @@ INSERT INTO `animals` (`animal_id`, `name`, `species`, `age`, `enclosure_id`) VA
 (64, 'Tapidesouris', 'Tapir', 3, 41),
 (65, 'Caesaro', 'Casoar', 2, 42),
 (66, 'Olalaa', 'Guépard', 4, 43),
-(67, 'Croks', 'Crocodile nain', 3, 44),
+(67, 'Renecktoon', 'Crocodile nain', 3, 44),
 (68, 'Cracotte', 'Gazelle', 11, 45),
 (69, 'Gemini', 'Autruche', 3, 45),
 (70, 'Rotule', 'Gnou', 4, 46),
@@ -239,7 +239,7 @@ CREATE TABLE IF NOT EXISTS `reviews` (
   PRIMARY KEY (`review_id`),
   KEY `user_id` (`user_id`),
   KEY `enclosure_id` (`enclosure_id`)
-) ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
