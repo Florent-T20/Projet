@@ -2,7 +2,7 @@
 
 // session lancée
 require_once('back/access.php');
-$_SESSION['role'] = "guest";
+$_SESSION['role'] = "guest";  // à changer ABSOLUMENT !
 
 // Message d'information pour l'utilisateur
 $message = "";
