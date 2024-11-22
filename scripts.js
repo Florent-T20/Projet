@@ -29,7 +29,10 @@ function updateCart() {
   // Créer une nouvelle liste d'articles dans le panier
   cart.forEach(item => {
     const listItem = document.createElement('li');
-    listItem.textContent = `${item.name} - €${item.price.toFixed(2)} x ${item.quantity}`;
+    listItem.innerHTML = `
+      ${item.name} - €${item.price.toFixed(2)} x ${item.quantity}
+      <button class="decrease-quantity" data-name="${item.name}">-</button>
+    `;
     cartItemsList.appendChild(listItem);
 
     total += item.price * item.quantity;
@@ -63,10 +66,31 @@ function addToCart(event) {
   updateCart();
 }
 
+// Réduire la quantité d'un article
+function decreaseQuantity(event) {
+  const name = event.target.getAttribute('data-name');
+  const item = cart.find(item => item.name === name);
+
+  if (item && item.quantity > 1) {
+    // Si l'article existe et que la quantité est supérieure à 1, diminuer la quantité
+    item.quantity -= 1;
+    updateCart();
+  } else {
+    // Si la quantité est 1, retirer l'article du panier
+    cart = cart.filter(item => item.name !== name);
+    updateCart();
+  }
+}
+
 // Ajouter des événements aux boutons "Ajouter au panier"
 document.addEventListener('click', (event) => {
   if (event.target && event.target.classList.contains('add-to-cart')) {
     addToCart(event);
+  }
+
+  // Si un bouton "-" est cliqué, diminuer la quantité
+  if (event.target && event.target.classList.contains('decrease-quantity')) {
+    decreaseQuantity(event);
   }
 });
 

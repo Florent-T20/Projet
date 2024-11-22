@@ -3,10 +3,14 @@ body {
 }
 
 .custom-slider { display: none; }
+
 .slide-container {
     max-width: 800px;
-    position: relative;
-    margin: auto;
+    position: absolute;
+    
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .prev, .next {
     cursor: pointer;
