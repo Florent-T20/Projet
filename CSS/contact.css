@@ -86,6 +86,6 @@ form .pied-formulaire button:hover {
 
 @media screen and (max-width:920px) {
     form .corps-formulaire .droite {
-        margin-left: 40px;
+        margin-left: 0px;
     }
 }
