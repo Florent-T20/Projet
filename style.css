@@ -315,3 +315,7 @@ header {
 .menu-item:hover .submenu {
     display: block;
 }
+
+.loup{
+    height: 220px;
+}
