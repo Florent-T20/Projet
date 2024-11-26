@@ -6,14 +6,14 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.F {
+/*.F {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-size: cover;
     background-position: center;
-}
+}*/
 
 body {
     background-color: beige;
@@ -102,6 +102,9 @@ header {
     transform: scale(0);
     transition: transform .5s ease, height .2s ease;
     z-index: 1;
+
+    top: 20%;
+    left: 35%;
 }
 
 .wrapper.active-popup {
@@ -262,7 +265,7 @@ header {
 
 /* Page principale (modifications possibles) */
 .image1 {
-    margin-top: -640px;
+    /* margin-top: -640px; */
     position: relative;
     width: 100%;
     z-index: 0;
