@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 22 nov. 2024 à 10:30
+-- Généré le : mar. 26 nov. 2024 à 15:44
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -48,10 +48,10 @@ INSERT INTO `animals` (`animal_id`, `name`, `species`, `age`, `enclosure_id`) VA
 (3, 'Zgeg', 'Grand hocco', 1, 8),
 (4, 'Jeannot', 'Panda roux', 1, 1),
 (5, 'Dimitri', 'Lémurien', 1, 2),
-(6, 'Becamerde', 'Chèvre naine', 2, 3),
+(6, 'Goat', 'Chèvre naine', 2, 3),
 (7, 'Poilu', 'Mouflon', 3, 4),
 (8, 'Carapute', 'Tortue', 10, 6),
-(9, 'Michel', 'Cerf', 5, 11),
+(9, 'Lilia', 'Cerf', 5, 11),
 (10, 'Mouloud', 'Macaque crabier', 3, 10),
 (11, 'Zgeg', 'Vautour', 2, 12),
 (12, 'Jeannine', 'Antilope', 4, 13),
@@ -82,9 +82,9 @@ INSERT INTO `animals` (`animal_id`, `name`, `species`, `age`, `enclosure_id`) VA
 (37, 'Buffalo', 'Bison', 7, 27),
 (38, 'Chameau', 'Dromadaire', 4, 28),
 (39, 'Triton', 'Âne de provence', 5, 28),
-(40, 'Cinquante', 'Zèbre', 3, 29),
+(40, 'Hecarim', 'Zèbre', 3, 29),
 (41, 'Ed', 'Hyène', 2, 30),
-(42, 'Diabétik', 'Hippopotame', 4, 31),
+(42, 'Cocotte', 'Hippopotame', 4, 31),
 (43, 'Waluigi', 'Loup à crinière', 3, 32),
 (44, 'Dumbo', 'Eléphant', 11, 33),
 (45, 'Parchemin', 'Varan de Komodo', 3, 34),
@@ -97,7 +97,7 @@ INSERT INTO `animals` (`animal_id`, `name`, `species`, `age`, `enclosure_id`) VA
 (52, 'Simba', 'Lion', 4, 40),
 (53, 'Tapis', 'Tapir', 3, 41),
 (54, 'Caesar', 'Casoar', 2, 42),
-(55, 'Sacourvite', 'Guépard', 4, 43),
+(55, 'Flash', 'Guépard', 4, 43),
 (56, 'Crocro', 'Crocodile nain', 3, 44),
 (57, 'Biscotte', 'Gazelle', 11, 45),
 (58, 'Gépeur', 'Autruche', 3, 45),
@@ -119,7 +119,7 @@ INSERT INTO `animals` (`animal_id`, `name`, `species`, `age`, `enclosure_id`) VA
 (74, 'Veste', 'Coati', 3, 49),
 (75, 'Samaritin', 'Saïmiri', 1, 49),
 (76, 'Jigot', 'Iguane', 1, 50),
-(77, 'Viper', 'Python', 2, 50),
+(77, 'Cassio', 'Python', 2, 50),
 (78, 'Carabosse', 'Tortue', 10, 50);
 
 -- --------------------------------------------------------
