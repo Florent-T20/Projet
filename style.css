@@ -16,7 +16,9 @@
 }*/
 
 body {
-    background-color: beige;
+    background: url(images/mountains-1412683_1280.png) no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 header {
@@ -267,13 +269,22 @@ header {
 .image1 {
     /* margin-top: -640px; */
     position: relative;
-    width: 100%;
+    width: 80%;
     z-index: 0;
+    margin-top: 150px;
+    left: 10%;
+    border: 5px solid #000;
 }
 
 .image2 {
     width: 5%;
     border-radius: 50%;
+}
+
+.image3 {
+    width: 50%;
+    margin-top: 20px;
+    margin-left: -60px;
 }
 
 
