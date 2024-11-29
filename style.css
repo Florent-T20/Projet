@@ -312,6 +312,11 @@ header {
     
 }
 
+.image5 {
+    position: relative;
+    left: 190px;
+}
+
 
 /* Conteneur du menu avec sous-menu */
 .menu-item {
