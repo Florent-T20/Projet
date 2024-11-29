@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 26 nov. 2024 à 15:44
+-- Généré le : ven. 29 nov. 2024 à 08:38
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `animals` (
   `enclosure_id` int DEFAULT NULL,
   PRIMARY KEY (`animal_id`),
   KEY `enclosure_id` (`enclosure_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=79 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=82 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `animals`
@@ -57,7 +57,7 @@ INSERT INTO `animals` (`animal_id`, `name`, `species`, `age`, `enclosure_id`) VA
 (12, 'Jeannine', 'Antilope', 4, 13),
 (13, 'Maria', 'Daim', 3, 13),
 (14, 'Becamerde', 'Nilgaut', 2, 13),
-(15, 'Oeil percé', 'Loup d\'\'Europe', 3, 14),
+(79, 'Bin', 'Binturong', 2, 5),
 (16, 'Warwick', 'Loup d\'\'Europe', 4, 14),
 (17, 'Pauline', 'Cigogne', 1, 15),
 (18, 'Mohamed', 'Marabout', 3, 15),
@@ -73,11 +73,11 @@ INSERT INTO `animals` (`animal_id`, `name`, `species`, `age`, `enclosure_id`) VA
 (28, 'Carabosse', 'Tortue', 4, 20),
 (29, 'Mario', 'Pécari', 3, 21),
 (30, 'Luigi', 'Lynx', 2, 22),
-(31, 'Gris', 'Cerval', 3, 23),
+(31, 'Gris', 'Serval', 3, 23),
 (32, 'Ouaf', 'Chien des buissons', 4, 24),
 (33, 'Tigrou', 'Tigre', 4, 25),
 (34, 'Isabelle', 'Flamant rose', 1, 26),
-(35, 'Lemanoir', 'Lamanoir', 4, 26),
+(35, 'Lemanoir', 'Tamanoir', 4, 26),
 (36, 'Théo', 'Nandou', 3, 26),
 (37, 'Buffalo', 'Bison', 7, 27),
 (38, 'Chameau', 'Dromadaire', 4, 28),
@@ -95,26 +95,17 @@ INSERT INTO `animals` (`animal_id`, `name`, `species`, `age`, `enclosure_id`) VA
 (50, 'Théophile', 'Gibbon', 3, 38),
 (51, 'Capucine', 'Capucin', 3, 39),
 (52, 'Simba', 'Lion', 4, 40),
-(53, 'Tapis', 'Tapir', 3, 41),
-(54, 'Caesar', 'Casoar', 2, 42),
-(55, 'Flash', 'Guépard', 4, 43),
-(56, 'Crocro', 'Crocodile nain', 3, 44),
-(57, 'Biscotte', 'Gazelle', 11, 45),
-(58, 'Gépeur', 'Autruche', 3, 45),
-(59, 'Genou', 'Gnou', 4, 46),
-(60, 'Onyx', 'Oryx beisa', 4, 46),
-(61, 'Suricate', 'Rhinocéros', 3, 47),
-(62, 'Sable', 'Fennec', 4, 48),
-(63, 'Manteau', 'Coati', 3, 49),
+(80, 'Mustébouée', 'Loutre', 4, 5),
+(81, 'Suri', 'Suricate', 6, 47),
 (64, 'Tapidesouris', 'Tapir', 3, 41),
 (65, 'Caesaro', 'Casoar', 2, 42),
-(66, 'Olalaa', 'Guépard', 4, 43),
+(66, 'Flash', 'Guépard', 4, 43),
 (67, 'Renecktoon', 'Crocodile nain', 3, 44),
 (68, 'Cracotte', 'Gazelle', 11, 45),
 (69, 'Gemini', 'Autruche', 3, 45),
 (70, 'Rotule', 'Gnou', 4, 46),
 (71, 'Xynno', 'Oryx beisa', 4, 46),
-(72, 'Suripussy', 'Rhinocéros', 3, 47),
+(72, 'Suripussy', 'Rhinocéros', 3, 46),
 (73, 'Kayou', 'Fennec', 4, 48),
 (74, 'Veste', 'Coati', 3, 49),
 (75, 'Samaritin', 'Saïmiri', 1, 49),
@@ -164,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `enclosures` (
   `biome_id` int DEFAULT NULL,
   PRIMARY KEY (`enclosure_id`),
   KEY `biome_id` (`biome_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `enclosures`
@@ -220,7 +211,8 @@ INSERT INTO `enclosures` (`enclosure_id`, `name`, `description`, `status`, `biom
 (47, 'Enclos des suricates', NULL, 'open', 5),
 (48, 'Enclos des fennecs', NULL, 'open', 5),
 (49, 'Enclos des coatis et saïmiris', NULL, 'open', 5),
-(50, 'Enclos des pythons, tortues et iguanes', NULL, 'open', 6);
+(50, 'Enclos des pythons, tortues et iguanes', NULL, 'open', 6),
+(51, 'Future plaine africaine', NULL, 'open', 3);
 
 -- --------------------------------------------------------
 
