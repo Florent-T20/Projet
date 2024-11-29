@@ -19,6 +19,7 @@ body {
     background: url(images/mountains-1412683_1280.png) no-repeat;
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
 }
 
 header {
