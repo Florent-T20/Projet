@@ -295,6 +295,12 @@ header {
     left: 500px;
 }
 
+.B {
+    position: relative;
+    top: -940px;
+    left: 650px;
+}
+
 
 /* Conteneur du menu avec sous-menu */
 .menu-item {
