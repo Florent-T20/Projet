@@ -315,6 +315,17 @@ header {
 .image5 {
     position: relative;
     left: 190px;
+    top: -700px;
+}
+
+.info {
+    text-align: center;
+    margin-left: 400px;
+    margin-right: 400px;
+    font-size: 32px;
+    position: relative;
+    top: 200px;
+    z-index: 1;
 }
 
 
