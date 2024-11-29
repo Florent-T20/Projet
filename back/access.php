@@ -1,13 +1,18 @@
 <?php
-/*
-Ne pas toucher
-*/
+
+session_set_cookie_params([
+    'secure' => true,    // Transmet uniquement le cookie sur HTTPS
+    'httponly' => true,  // Interdit l'accès au cookie via JavaScript
+    'samesite' => 'Strict' // Empêche les envois depuis des sites tiers
+]);
 
 session_start();
 
-function isGuest() {
-    return isset($_SESSION['role']) && $_SESSION['role'] === 'guest';
+// Gestion des utilisateurs non connectés
+if (!isset($_SESSION['user_id'])) {
+    $_SESSION['role'] = 'guest'; // Par défaut : invité
 }
+
 
 function isUser() {
     return isset($_SESSION['role']) && $_SESSION['role'] === 'user';
@@ -17,14 +22,5 @@ function isAdmin() {
     return isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
 }
 
-// Vérification de l'accès (recharger la page actuelle, celle générée par le serveur)
-if (isAdmin()) {
-    echo "Bienvenue, administrateur.";
-} elseif (isUser()) {
-    echo "Bienvenue, utilisateur.";
-} else {
-    echo "Vous êtes un invité. Certaines fonctionnalités sont limitées.";
-}
-echo "<br />";
 
 ?>

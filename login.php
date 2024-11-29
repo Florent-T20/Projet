@@ -1,8 +1,14 @@
 <?php
 
 // session lancée
+// vérifie aussi s'il existe déjà une session
 require_once('back/access.php');
-$_SESSION['role'] = "guest";  // à changer ABSOLUMENT !
+
+// si qqun s'est connecté, alors on ne peut plus se connecter/s'enregistrer : on est redirigé vers la page d'accueil
+if (isAdmin() || isUser()) {
+    header("location: Projet.html");
+    exit;
+}
 
 // Message d'information pour l'utilisateur
 $message = "";
@@ -22,6 +28,7 @@ try {
 
 // Gestion du formulaire de login ou d'enregistrement
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     if (isset($_POST['login'])) {
         // Traitement du login
         $username = $_POST['username'];
@@ -73,11 +80,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $message = "Erreur : Veuillez entrer des informations valides.";
         }
     }
-}
-
-// Gestion des utilisateurs non connectés
-if (!isset($_SESSION['user_id'])) {
-    $_SESSION['role'] = 'guest'; // Par défaut : invité
 }
 
 if (!empty($message)):
