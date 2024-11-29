@@ -286,6 +286,7 @@ header {
     position: relative;
     width: 50%;
     top: 400px;
+    left: 50px;
 }
 
 .image4 {
@@ -293,12 +294,15 @@ header {
     width: 50%;
     top: -600px;
     left: 500px;
+    padding-right: none;
 }
 
 .B {
+    text-align: center;
     position: relative;
     top: -940px;
-    left: 650px;
+    margin-left: 270px;
+    
 }
 
 
