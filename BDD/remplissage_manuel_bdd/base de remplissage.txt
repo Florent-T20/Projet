@@ -1,0 +1,217 @@
+-- Table Users
+CREATE TABLE Users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    role ENUM('user', 'admin') NOT NULL DEFAULT 'user',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Table Biomes
+CREATE TABLE Biomes (
+    biome_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    color_code VARCHAR(7) NOT NULL, -- Code couleur pour le biome (ex. #FF5733)
+    section VARCHAR(50) NOT NULL
+);
+
+-- Table Enclosures
+CREATE TABLE Enclosures (
+    enclosure_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    description TEXT,
+    status ENUM('open', 'closed') NOT NULL DEFAULT 'open',
+    biome_id INT,
+    photos JSON, -- URLs des photos pour le carrousel
+    FOREIGN KEY (biome_id) REFERENCES Biomes(biome_id)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
+);
+
+-- Table Animals
+CREATE TABLE Animals (
+    animal_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    species VARCHAR(50) NOT NULL,
+    age INT NOT NULL,
+    enclosure_id INT,
+    FOREIGN KEY (enclosure_id) REFERENCES Enclosures(enclosure_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+-- Table Reviews
+CREATE TABLE Reviews (
+    review_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    enclosure_id INT,
+    rating INT NOT NULL CHECK (rating BETWEEN 1 AND 5), -- Note entre 1 et 5
+    comment TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY (enclosure_id) REFERENCES Enclosures(enclosure_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+-- Table Tickets
+CREATE TABLE Tickets (
+    ticket_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    purchase_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    validity_date DATE NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+-- Table Services
+CREATE TABLE Services (
+    service_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    location VARCHAR(100) NOT NULL,
+    description TEXT
+);
+
+-- Table Schedules
+CREATE TABLE Schedules (
+    schedule_id INT AUTO_INCREMENT PRIMARY KEY,
+    enclosure_id INT NOT NULL, 
+    feeding_time TIME NOT NULL, 
+    description TEXT, 
+    CONSTRAINT fk_enclosure FOREIGN KEY (enclosure_id) 
+    REFERENCES Enclosures(enclosure_id) 
+    ON DELETE CASCADE 
+    ON UPDATE CASCADE 
+);
+
+
+_____________________________________________________________________
+
+Explications des fonctionnalités et relations
+
+    Clés primaires :
+        Chaque table a une clé primaire unique (souvent un champ id avec auto-incrémentation).
+
+    Clés étrangères :
+        Les relations entre les tables utilisent des clés étrangères avec des contraintes d'intégrité référentielle (ON DELETE, ON UPDATE).
+
+    Types de colonnes :
+        Les champs ENUM gèrent les statuts fixes (par exemple, le rôle utilisateur ou le statut des enclos).
+        Le champ JSON dans la table Enclosures est utilisé pour stocker plusieurs URL de photos.
+
+    Contrainte CHECK :
+        La table Reviews impose une contrainte sur la note (rating) pour qu’elle soit comprise entre 1 et 5.
+
+    Cascade d'actions :
+        La suppression ou mise à jour d’un enregistrement dans une table mère impacte les enregistrements associés dans les tables filles (CASCADE).
+
+_____________________________________________________________________
+
+D'après le sujet, voici une proposition de modélisation des tables pour la base de données du site d'un parc animalier, prenant en compte les fonctionnalités demandées.
+
+### **1. Table `Users`**
+Gère les utilisateurs du site (visiteurs et administrateurs).
+
+| Colonne       | Type          | Description                                 |
+|---------------|---------------|---------------------------------------------|
+| `user_id`     | INT (PK)      | Identifiant unique de l'utilisateur         |
+| `username`    | VARCHAR(50)   | Nom d'utilisateur                          |
+| `password`    | VARCHAR(255)  | Mot de passe (haché pour la sécurité)       |
+| `email`       | VARCHAR(100)  | Adresse email                              |
+| `role`        | ENUM('user', 'admin') | Rôle de l'utilisateur (user/admin)    |
+| `created_at`  | TIMESTAMP     | Date de création du compte                 |
+
+### **2. Table `Enclosures`**
+Gère les informations sur les enclos et leur état.
+
+| Colonne       | Type          | Description                                |
+|---------------|---------------|--------------------------------------------|
+| `enclosure_id`| INT (PK)      | Identifiant unique de l'enclos             |
+| `name`        | VARCHAR(50)   | Nom de l'enclos                            |
+| `description` | TEXT          | Description de l'enclos                    |
+| `status`      | ENUM('open', 'closed') | Statut de l'enclos (ouvert/fermé)   |
+| `biome_id`    | INT (FK)      | Identifiant du biome (référence `Biomes`)  |
+
+### **3. Table `Biomes`**
+Gère les informations sur les différents biomes du parc.
+
+| Colonne       | Type          | Description                                |
+|---------------|---------------|--------------------------------------------|
+| `biome_id`    | INT (PK)      | Identifiant unique du biome                |
+| `name`        | VARCHAR(50)   | Nom du biome                               |
+| `color_code`  | VARCHAR(7)    | Code couleur pour différencier les biomes  |
+| `section`     | VARCHAR(50)   | Nom ou description de la section du parc   |
+
+### **4. Table `Animals`**
+Gère les informations des animaux présents dans les enclos.
+
+| Colonne       | Type          | Description                                |
+|---------------|---------------|--------------------------------------------|
+| `animal_id`   | INT (PK)      | Identifiant unique de l'animal             |
+| `name`        | VARCHAR(50)   | Nom de l'animal                            |
+| `species`     | VARCHAR(50)   | Espèce de l'animal                         |
+| `age`         | INT           | Âge de l'animal                            |
+| `enclosure_id`| INT (FK)      | Identifiant de l'enclos (référence `Enclosures`) |
+
+### **5. Table `Reviews`**
+Permet aux utilisateurs de laisser des avis et des notes sur les enclos.
+
+| Colonne       | Type          | Description                                |
+|---------------|---------------|--------------------------------------------|
+| `review_id`   | INT (PK)      | Identifiant unique de l'avis               |
+| `user_id`     | INT (FK)      | Identifiant de l'utilisateur (référence `Users`) |
+| `enclosure_id`| INT (FK)      | Identifiant de l'enclos (référence `Enclosures`) |
+| `rating`      | INT           | Note de l'enclos (1 à 5)                   |
+| `comment`     | TEXT          | Commentaire de l'utilisateur               |
+| `created_at`  | TIMESTAMP     | Date de l'avis                             |
+
+### **6. Table `Schedules`**
+Gère les horaires de repas des animaux dans chaque enclos.
+
+| Colonne       | Type          | Description                                |
+|---------------|---------------|--------------------------------------------|
+| `schedule_id` | INT (PK)      | Identifiant unique de l'horaire            |
+| `enclosure_id`| INT (FK)      | Identifiant de l'enclos (référence `Enclosures`) |
+| `feeding_time`| TIME          | Heure de repas                             |
+| `description` | TEXT          | Description du repas                       |
+
+### **7. Table `Tickets`**
+Gère la billetterie en ligne pour les visiteurs.
+
+| Colonne       | Type          | Description                                |
+|---------------|---------------|--------------------------------------------|
+| `ticket_id`   | INT (PK)      | Identifiant unique du billet               |
+| `user_id`     | INT (FK)      | Identifiant de l'utilisateur (référence `Users`) |
+| `purchase_date` | TIMESTAMP   | Date et heure d'achat                      |
+| `validity_date` | DATE        | Date de validité du billet                 |
+| `price`       | DECIMAL(10,2) | Prix du billet                             |
+
+### **8. Table `Services`**
+Gère les services disponibles dans le parc (restaurants, gares, boutiques).
+
+| Colonne       | Type          | Description                                |
+|---------------|---------------|--------------------------------------------|
+| `service_id`  | INT (PK)      | Identifiant unique du service              |
+| `name`        | VARCHAR(50)   | Nom du service (restaurant, gare, etc.)    |
+| `location`    | VARCHAR(100)  | Emplacement du service dans le parc        |
+| `description` | TEXT          | Description du service                     |
+
+---
+
+### **Relations entre les tables**
+- **`Users` ↔ `Reviews`** : Un utilisateur peut laisser plusieurs avis, chaque avis est lié à un utilisateur (1:N).
+- **`Enclosures` ↔ `Animals`** : Un enclos peut contenir plusieurs animaux, chaque animal est lié à un seul enclos (1:N).
+- **`Enclosures` ↔ `Biomes`** : Un biome peut contenir plusieurs enclos, chaque enclos est lié à un seul biome (1:N).
+- **`Enclosures` ↔ `Reviews`** : Un enclos peut recevoir plusieurs avis, chaque avis est lié à un seul enclos (1:N).
+- **`Enclosures` ↔ `Schedules`** : Un enclos peut avoir plusieurs horaires de repas, chaque horaire est lié à un seul enclos (1:N).
+- **`Users` ↔ `Tickets`** : Un utilisateur peut acheter plusieurs billets (1:N).
+- **`Enclosures` ↔ `Services`** : Utilisation d’une relation indirecte pour que les services puissent être localisés à proximité des enclos (par exemple, via la table `Biomes`).
+
+---
+
+Cette structure permet de répondre aux besoins décrits dans le sujet, avec des fonctionnalités flexibles pour la gestion des enclos, animaux, utilisateurs, billetterie, et avis.

@@ -1,0 +1,132 @@
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Raoul", "Ara perroquet", 1, 9);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Chaussette", "Panthère", 3, 7);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Zgeg", "Grand hocco", 1, 8);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Jeannot", "Panda roux", 1, 1);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Dimitri", "Lémurien", 1, 2);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Becamerde", "Chèvre naine", 2, 3);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Poilu", "Mouflon", 3, 4);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Carapute", "Tortue", 10, 6);
+____
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Michel", "Cerf", 5, 11);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Mouloud", "Macaque crabier", 3, 10);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Zgeg", "Vautour", 2, 12);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Jeannine", "Antilope", 4, 13);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Maria", "Daim", 3, 13);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Becamerde", "Nilgaut", 2, 13);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Oeil percé", "Loup d''Europe", 3, 14);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Griffe sanglante", "Loup d''Europe", 4, 14);
+____
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Pauline", "Cigogne", 1, 15);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Mohamed", "Marabout", 3, 15);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Patatartiné", "Oryx algazelle", 2, 16);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Gérard", "Watusi", 4, 16);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Moquette", "Âne de Somalie", 4, 16);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Aubergine", "Yack", 2, 17);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Bouldepoil", "Mouton noir", 3, 17);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Sapik", "Porc-épic", 4, 18);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Meumeu", "Emeu", 5, 19);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Joharno", "Wallaby", 3, 19);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Budget", "Ibis", 2, 20);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Carabosse", "Tortue", 4, 20);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Mario", "Pécari", 3, 21);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Luigi", "Lynx", 2, 22);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Gris", "Cerval", 3, 23);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Ouaf", "Chien des buissons", 4, 24);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Tigrou", "Tigre", 4, 25);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Isabelle", "Flamant rose", 1, 26);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Lemanoir", "Lamanoir", 4, 26);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Théo", "Nandou", 3, 26);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Buffalo", "Bison", 7, 27);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Chameau", "Dromadaire", 4, 28);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Triton", "Âne de provence", 5, 28);
+____
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Cinquante", "Zèbre", 3, 29);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Ed", "Hyène", 2, 30);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Diabétik", "Hippopotame", 4, 31);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Waluigi", "Loup à crinière", 3, 32);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Dumbo", "Eléphant", 11, 33);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Parchemin", "Varan de Komodo", 3, 34);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Longitude", "Girafe", 4, 35);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Gru", "Grivet cercopithèque", 4, 35);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Gege", "Tamarin", 1, 36);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Ouioui", "Ouistiti", 4, 37);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Théophile", "Gibbon", 3, 38);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Capucine", "Capucin", 3, 39);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Simba", "Lion", 4, 40);
+____
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Tapis", "Tapir", 3, 41);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Caesar", "Casoar", 2, 42);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Sacourvite", "Guépard", 4, 43);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Crocro", "Crocodile nain", 3, 44);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Biscotte", "Gazelle", 11, 45);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Gépeur", "Autruche", 3, 45);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Genou", "Gnou", 4, 46);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Onyx", "Oryx beisa", 4, 46);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Suricate", "Rhinocéros", 3, 47);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Sable", "Fennec", 4, 48);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Manteau", "Coati", 3, 49);
+INSERT INTO animals (name, species, age, enclosure_id)
+VALUES ("Samaritin", "Saïmiri", 1, 49);
