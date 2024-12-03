@@ -138,6 +138,23 @@ if (isAdmin() || isUser()) {
                 $message = "Horaire de repas ajouté avec succès !";
             }
 
+            // ajouter un animal dans un enclos
+            // pas fini
+            elseif ($action === 'add_animal') {
+                $enclosure_id = $_POST['enclosure_id'];
+                $name = $_POST['name'];
+                $age = $_POST['age'];
+                $species = $_POST['species'];
+
+                $stmt = $pdo->prepare("INSERT INTO animals (name, species, age, enclosure_id) VALUES (:name, :species, :age, :enclosure_id)");
+                $stmt->execute([
+                    'name' => $name,
+                    'species' => $species,
+                    'age' => $age,
+                    'enclosure_id' => $enclosure_id]);
+                $message = "Animal ajouté avec succès !";
+            }
+
         }
 
         echo "<hr />";
@@ -236,6 +253,26 @@ if (isAdmin() || isUser()) {
 
                 <label for="horaire">Horaire de repas</label>
                 <input type="time" name="horaire" required><br>
+
+                <button type="submit">Ajouter</button>
+            </form>';
+
+        echo '
+            <h2>Ajouter un animal</h2>
+            <form method="POST">
+                <input type="hidden" name="action" value="add_animal">
+
+                <label for="name">Nom de l\'animal :</label>
+                <input type="text" name="name" required><br>
+
+                <label for="species">Espèce :</label>
+                <input type="text" name="species" required><br>
+
+                <label for="age">Âge de l\'animal :</label>
+                <input type="number" name="age" required><br>
+
+                <label for="enclosure_id">ID de l\'enclos :</label>
+                <input type="number" name="enclosure_id" required><br>
 
                 <button type="submit">Ajouter</button>
             </form>';
