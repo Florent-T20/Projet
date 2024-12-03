@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 29 nov. 2024 à 08:38
+-- Généré le : mar. 03 déc. 2024 à 14:37
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -267,6 +267,32 @@ CREATE TABLE IF NOT EXISTS `services` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `stocktickets`
+--
+
+DROP TABLE IF EXISTS `stocktickets`;
+CREATE TABLE IF NOT EXISTS `stocktickets` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `description` text,
+  `price` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `stocktickets`
+--
+
+INSERT INTO `stocktickets` (`id`, `name`, `description`, `price`) VALUES
+(1, 'Pass Enfant', 'Pass valable pour les enfants de moins de 18 ans, permettant l\'accès à tout le parc.', 10.00),
+(2, 'Pass étudiant', 'Pass valable pour les personnes ayant une carte étudiante, permettant l\'accès à tout le parc.', 15.00),
+(3, 'Pass adulte', 'Pass valable pour les adultes de 18 ans à 64 ans, permettant l\'accès à tout le parc.', 20.00),
+(4, 'Pass sénior', 'Pass valable pour les adultes de plus de 64 ans permettant l\'accès à tout le parc.', 15.00),
+(5, 'Pass Guide', 'Pass permettant de visiter l\'arrière des enclos en présence d\'un soigneur attitré.', 80.00);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `tickets`
 --
 
@@ -276,7 +302,6 @@ CREATE TABLE IF NOT EXISTS `tickets` (
   `user_id` int DEFAULT NULL,
   `purchase_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `validity_date` date NOT NULL,
-  `price` decimal(10,2) NOT NULL,
   PRIMARY KEY (`ticket_id`),
   KEY `user_id` (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -298,7 +323,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `users`
@@ -306,7 +331,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `role`, `created_at`) VALUES
 (2, 'admin', '$2y$10$kv7FDopKavDp37KxDf0ksetnZKgi7tMHPcDhfd5Y.j4ozh5MBFbWi', 'mathys.rageade@isen.yncrea.fr', 'admin', '2024-11-15 10:20:14'),
-(3, 'mathys', '$2y$10$1SOF2dhokke5VwvBBY/WiOkSoHXeHKDIoZYqhreUjSbMD4aUFdjIC', 'bloup@superkk.prout', 'user', '2024-11-19 14:09:17');
+(3, 'mathys', '$2y$10$1SOF2dhokke5VwvBBY/WiOkSoHXeHKDIoZYqhreUjSbMD4aUFdjIC', 'bloup@superkk.prout', 'user', '2024-11-19 14:09:17'),
+(4, 'Staulk', '$2y$10$XZ8NCyL1Wcnsw46/4z6RWOaAuZFWm5pHb.uT3ZN2KuWp4Hpob.dbq', 'gtsubb@gmail.com', 'user', '2024-11-29 09:46:33');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
