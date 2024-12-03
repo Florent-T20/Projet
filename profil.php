@@ -54,14 +54,223 @@ if (isAdmin() || isUser()) {
                 <li>Votre compte a été créé le : {$user['created_at']}</li>
             </ul>";
 
+    // DEBUT SECTION ADMIN
+    if (isAdmin()) {
+
+        // Traitement des actions : ajout, modification, suppression d'utilisateurs
+        $message = '';
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $action = $_POST['action'];
+
+            // Ajouter un utilisateur
+            if ($action === 'add') {
+                $username = $_POST['username'];
+                $email = $_POST['email'];
+                $role = $_POST['role'];
+                $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+                $stmt = $pdo->prepare("INSERT INTO users (username, email, role, password) VALUES (:username, :email, :role, :password)");
+                $stmt->execute([
+                    'username' => $username,
+                    'email' => $email,
+                    'role' => $role,
+                    'password' => $password
+                ]);
+                $message = "Utilisateur ajouté avec succès !";
+
+            // Modifier un utilisateur
+            } elseif ($action === 'edit') {
+                $user_id = $_POST['user_id'];
+                $email = $_POST['email'];
+                $role = $_POST['role'];
+
+                $stmt = $pdo->prepare("UPDATE users SET email = :email, role = :role WHERE user_id = :user_id");
+                $stmt->execute([
+                    'email' => $email,
+                    'role' => $role,
+                    'user_id' => $user_id
+                ]);
+                $message = "Utilisateur modifié avec succès !";
+
+            // Supprimer un utilisateur
+            } elseif ($action === 'delete') {
+                $user_id = $_POST['user_id'];
+
+                $stmt = $pdo->prepare("DELETE FROM users WHERE user_id = :user_id");
+                $stmt->execute(['user_id' => $user_id]);
+                $message = "Utilisateur supprimé avec succès !";
+            }
+
+            // deplacer un animal
+            elseif ($action === 'move_animal') {
+                $animal_id = $_POST['animal_id'];
+                $enclosure_id = $_POST['enclosure_id'];
+
+                $stmt = $pdo->prepare("UPDATE animals SET enclosure_id = :enclosure_id WHERE animal_id = :animal_id");
+                $stmt->execute([
+                    'animal_id' => $animal_id,
+                    'enclosure_id' => $enclosure_id]);
+                $message = "Animal déplacé avec succès !";
+            }
+
+            // modifier horaire de repas
+            elseif ($action === 'edit_horaire') {
+                $sched_id = $_POST['sched_id'];
+                $horaire = $_POST['horaire'];
+
+                $stmt = $pdo->prepare("UPDATE schedules SET feeding_time = :horaire WHERE schedule_id = :sched_id");
+                $stmt->execute([
+                    'sched_id' => $sched_id,
+                    'horaire' => $horaire]);
+                $message = "Horaire de repas modifié avec succès !";
+            }
+
+            // ajouter horaire de repas
+            elseif ($action === 'add_horaire') {
+                $enclosure_id = $_POST['enclosure_id'];
+                $horaire = $_POST['horaire'];
+
+                $stmt = $pdo->prepare("INSERT INTO schedules (enclosure_id, feeding_time) VALUES (:enclosure_id, :horaire)");
+                $stmt->execute([
+                    'enclosure_id' => $enclosure_id,
+                    'horaire' => $horaire]);
+                $message = "Horaire de repas ajouté avec succès !";
+            }
+
+        }
+
+        echo "<hr />";
+        echo "<p>$message</p>";
+        echo "<hr />";
+
+        // formulaire user
+        echo '    
+            <h2>Ajouter un utilisateur</h2>
+            <form method="POST">
+                <input type="hidden" name="action" value="add">
+
+                <label for="username">Nom d\'utilisateur :</label>
+                <input type="text" name="username" required><br>
+
+                <label for="email">Email :</label>
+                <input type="email" name="email" required><br>
+
+                <label for="role">Rôle :</label>
+                <select name="role" required>
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select><br>
+
+                <label for="password">Mot de passe :</label>
+                <input type="password" name="password" required><br>
+
+                <button type="submit">Ajouter</button>
+            </form>
+
+            <h2>Modifier un utilisateur</h2>
+            <form method="POST">
+                <input type="hidden" name="action" value="edit">
+
+                <label for="user_id">ID de l\'utilisateur :</label>
+                <input type="number" name="user_id" required><br>
+
+                <label for="email">Email :</label>
+                <input type="email" name="email" required><br>
+
+                <label for="role">Rôle :</label>
+                <select name="role" required>
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select><br>
+
+                <button type="submit">Modifier</button>
+            </form>
+
+            <h2>Supprimer un utilisateur</h2>
+            <form method="POST">
+                <input type="hidden" name="action" value="delete">
+
+                <label for="user_id">ID de l\'utilisateur :</label>
+                <input type="number" name="user_id" required><br>
+
+                <button type="submit">Supprimer</button>
+            </form>';
+
+        echo "<hr />";
+
+        // formulaire animaux
+        echo '    
+            <h2>Déplacer un animal</h2>
+            <form method="POST">
+                <input type="hidden" name="action" value="move_animal">
+
+                <label for="animal_id">ID de l\'animal :</label>
+                <input type="number" name="animal_id" required><br>
+
+                <label for="enclosure_id">ID de l\'enclos :</label>
+                <input type="number" name="enclosure_id" required><br>
+
+                <button type="submit">Déplacer</button>
+            </form>
+
+            <h2>Modifier horaire de repas enclos</h2>
+            <form method="POST">
+                <input type="hidden" name="action" value="edit_horaire">
+
+                <label for="sched_id">ID de l\'horaire :</label>
+                <input type="number" name="sched_id" required><br>
+
+                <label for="horaire">Horaire de repas :</label>
+                <input type="time" name="horaire" required><br>
+
+                <button type="submit">Modifier</button>
+            </form>
+
+            <h2>Ajouter un horaire de repas</h2>
+            <form method="POST">
+                <input type="hidden" name="action" value="add_horaire">
+
+                <label for="enclosure_id">ID de l\'enclos :</label>
+                <input type="number" name="enclosure_id" required><br>
+
+                <label for="horaire">Horaire de repas</label>
+                <input type="time" name="horaire" required><br>
+
+                <button type="submit">Ajouter</button>
+            </form>';
+
+    }
+
 } else {
     // Sinon, afficher un message ou rediriger vers une page de connexion
     echo '<p>Veuillez vous connecter pour accéder à ce formulaire.</p>';
 }
 
+echo "<hr />";
 echo '<a href="Projet.html">Retourner à l\'accueil.</a>';
 
 ?>
+
+
+<style>
+    hr {
+      border: none;
+      border-top: 3px double #333;
+      color: #333;
+      overflow: visible;
+      text-align: center;
+      height: 5px;
+    }
+
+    hr::after {
+      background: #fff;
+      content: '§';
+      padding: 0 4px;
+      position: relative;
+      top: -13px;
+    }
+</style>
 
 </body>
 </html>
