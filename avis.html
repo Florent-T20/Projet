@@ -31,7 +31,7 @@
             </span>
             <a href="contact.html">Contact</a>
             <a href="avis.html">Avis</a>
-            <a href="profil.html">Profil</a>
+            <a href="profil.php">Profil</a>
             <button class="btnLogin-popup">Login</button>
         </nav>
     </header>
@@ -112,9 +112,21 @@
     
 </div>
 
-    <script src="script.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<!-- début temporaire -->
+<iframe 
+    id="dynamicIframe" 
+    src="back/reviews.php"
+    style="width: 100%; border: none; top: 100px; position: relative; background-color: white;">
+</iframe>
+
+<script src="ajust_iframe.js"></script>
+<!-- fin temporaire -->
+
+
+<script src="script.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

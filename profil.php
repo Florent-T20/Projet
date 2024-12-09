@@ -139,7 +139,6 @@ if (isAdmin() || isUser()) {
             }
 
             // ajouter un animal dans un enclos
-            // pas fini
             elseif ($action === 'add_animal') {
                 $enclosure_id = $_POST['enclosure_id'];
                 $name = $_POST['name'];
@@ -153,6 +152,15 @@ if (isAdmin() || isUser()) {
                     'age' => $age,
                     'enclosure_id' => $enclosure_id]);
                 $message = "Animal ajouté avec succès !";
+            } 
+
+            // supprimer un commentaire
+            elseif ($action === 'delete_review') {
+                $review_id = $_POST['review_id'];
+
+                $stmt = $pdo->prepare("DELETE FROM reviews WHERE review_id = :review_id");
+                $stmt->execute(['review_id' => $review_id]);
+                $message = "Commentaire supprimé avec succès !";
             }
 
         }
@@ -183,8 +191,9 @@ if (isAdmin() || isUser()) {
                 <input type="password" name="password" required><br>
 
                 <button type="submit">Ajouter</button>
-            </form>
+            </form>';
 
+        echo '
             <h2>Modifier un utilisateur</h2>
             <form method="POST">
                 <input type="hidden" name="action" value="edit">
@@ -202,8 +211,9 @@ if (isAdmin() || isUser()) {
                 </select><br>
 
                 <button type="submit">Modifier</button>
-            </form>
+            </form>';
 
+        echo '
             <h2>Supprimer un utilisateur</h2>
             <form method="POST">
                 <input type="hidden" name="action" value="delete">
@@ -212,6 +222,36 @@ if (isAdmin() || isUser()) {
                 <input type="number" name="user_id" required><br>
 
                 <button type="submit">Supprimer</button>
+            </form>';
+
+        echo "<hr />";
+
+        echo '
+            <h2>Modifier horaire de repas enclos</h2>
+            <form method="POST">
+                <input type="hidden" name="action" value="edit_horaire">
+
+                <label for="sched_id">ID de l\'horaire :</label>
+                <input type="number" name="sched_id" required><br>
+
+                <label for="horaire">Horaire de repas :</label>
+                <input type="time" name="horaire" required><br>
+
+                <button type="submit">Modifier</button>
+            </form>';
+
+        echo '
+            <h2>Ajouter un horaire de repas</h2>
+            <form method="POST">
+                <input type="hidden" name="action" value="add_horaire">
+
+                <label for="enclosure_id">ID de l\'enclos :</label>
+                <input type="number" name="enclosure_id" required><br>
+
+                <label for="horaire">Horaire de repas</label>
+                <input type="time" name="horaire" required><br>
+
+                <button type="submit">Ajouter</button>
             </form>';
 
         echo "<hr />";
@@ -229,32 +269,6 @@ if (isAdmin() || isUser()) {
                 <input type="number" name="enclosure_id" required><br>
 
                 <button type="submit">Déplacer</button>
-            </form>
-
-            <h2>Modifier horaire de repas enclos</h2>
-            <form method="POST">
-                <input type="hidden" name="action" value="edit_horaire">
-
-                <label for="sched_id">ID de l\'horaire :</label>
-                <input type="number" name="sched_id" required><br>
-
-                <label for="horaire">Horaire de repas :</label>
-                <input type="time" name="horaire" required><br>
-
-                <button type="submit">Modifier</button>
-            </form>
-
-            <h2>Ajouter un horaire de repas</h2>
-            <form method="POST">
-                <input type="hidden" name="action" value="add_horaire">
-
-                <label for="enclosure_id">ID de l\'enclos :</label>
-                <input type="number" name="enclosure_id" required><br>
-
-                <label for="horaire">Horaire de repas</label>
-                <input type="time" name="horaire" required><br>
-
-                <button type="submit">Ajouter</button>
             </form>';
 
         echo '
@@ -277,6 +291,18 @@ if (isAdmin() || isUser()) {
                 <button type="submit">Ajouter</button>
             </form>';
 
+        echo "<hr />";
+
+        echo '
+            <h2>Supprimer un commentaire</h2>
+            <form method="POST">
+                <input type="hidden" name="action" value="delete_review">
+
+                <label for="review_id">ID du commentaire :</label>
+                <input type="number" name="review_id" required><br>
+
+                <button type="submit">Supprimer</button>
+            </form>';
     }
 
 } else {

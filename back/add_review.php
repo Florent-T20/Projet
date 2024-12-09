@@ -3,9 +3,6 @@
 require_once("access.php");
 
 
-// Message d'information pour l'utilisateur
-$message = "";
-
 // Connexion à la base de données
 $host = 'localhost';
 $dbname = 'projet_web_2425';
@@ -21,19 +18,35 @@ try {
 
 
 // récupération des informations utilisateurs
-$user_id = $_SESSION['user_id'];
-// Recherche de l'utilisateur dans la base de données
-$stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = :user_id");
-$stmt->execute(['user_id' => $user_id]);
-$user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+// à finir !!!
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $comment = htmlspecialchars($_POST['comment']);
-    $stmt = $pdo->prepare("INSERT INTO reviews (content) VALUES (:comment)");
-    $stmt->bindParam(':comment', $comment);
-    $stmt->execute();
-    echo $message;
+    $rating = $_POST['rating'];
+    
+    if (isUSer() || isAdmin()) {
+        $user_id = $_SESSION['user_id'];
+
+        // Recherche de l'utilisateur dans la base de données
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = :user_id");
+        $stmt->execute(['user_id' => $user_id]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $stmt = $pdo->prepare("INSERT INTO reviews (user_id, rating, comment) VALUES (:user_id, :rating, :comment)");
+        $stmt->execute([
+            'user_id' => $user_id,
+            'rating' => $rating,
+            'comment' => $comment]);
+    } else {
+        $stmt = $pdo->prepare("INSERT INTO reviews (rating, comment) VALUES (:rating, :comment)");
+        $stmt->execute([
+            'rating' => $rating,
+            'comment' => $comment]);
+    }
+    echo "Message publié avec succès !<br />";
+    echo "<a href='reviews.php'>Retour</a>";
+
 }
 
 ?>
