@@ -126,6 +126,18 @@ if (isAdmin() || isUser()) {
                 $message = "Horaire de repas modifié avec succès !";
             }
 
+            // modifier status enclos
+            elseif ($action === 'edit_status') {
+                $enclosure_id = $_POST['enclosure_id'];
+                $status = $_POST['status'];
+
+                $stmt = $pdo->prepare("UPDATE enclosures SET status = :status WHERE enclosure_id = :enclosure_id");
+                $stmt->execute([
+                    'enclosure_id' => $enclosure_id,
+                    'status' => $status]);
+                $message = "Etat de l'enclos modifié avec succès !";
+            }
+
             // ajouter horaire de repas
             elseif ($action === 'add_horaire') {
                 $enclosure_id = $_POST['enclosure_id'];
@@ -252,6 +264,23 @@ if (isAdmin() || isUser()) {
                 <input type="time" name="horaire" required><br>
 
                 <button type="submit">Ajouter</button>
+            </form>';
+
+        echo '
+            <h2>Modifier status enclos</h2>
+            <form method="POST">
+                <input type="hidden" name="action" value="edit_status">
+
+                <label for="enclosure_id">ID de l\'enclos :</label>
+                <input type="number" name="enclosure_id" required><br>
+
+                <label for="status">Status :</label>
+                <select name="status" required>
+                    <option value="open">Ouvert</option>
+                    <option value="closed">Fermé</option>
+                </select><br>
+
+                <button type="submit">Modifier</button>
             </form>';
 
         echo "<hr />";
