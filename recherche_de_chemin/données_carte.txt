@@ -17,7 +17,7 @@
 17 : (1449,851) - Intersection - [18,16,13]
 18 : (1351,767) - Loutre - [17,85]
 19 : (1182,715) - Intersection - [85,84,72]
-20 : (1279,648) - INtersection - [39,86,84]
+20 : (1279,648) - Intersection - [39,86,84]
 21 : (1009,730) - Point de vue, Grivet cercopithèque - [22,72]
 22 : (940,624) - Intersection, Paillote, Varan de Komodo - [21,23,99]
 23 : (1049,523) - Intersection, Point de rassemblement, Gare du plateau - [22,83,82]
