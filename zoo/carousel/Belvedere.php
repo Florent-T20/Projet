@@ -116,7 +116,7 @@ try {
 
     
     <!-- Custom styles for this template -->
-    <link href="carousel.css" rel="stylesheet">
+    <link href="styles/carousel.css" rel="stylesheet">
   </head>
   <body>
 
@@ -1182,6 +1182,11 @@ try {
 
 
 </main>
+
+
+<!-- search bar -->
+<script src="scripts/SearchBar.js"></script>
+
 
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
