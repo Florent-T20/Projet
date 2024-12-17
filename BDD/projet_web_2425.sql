@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 14 déc. 2024 à 10:35
+-- Généré le : mar. 17 déc. 2024 à 17:00
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -148,6 +148,41 @@ INSERT INTO `biomes` (`biome_id`, `name`, `color_code`, `section`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `commandes`
+--
+
+DROP TABLE IF EXISTS `commandes`;
+CREATE TABLE IF NOT EXISTS `commandes` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `utilisateur_id` int DEFAULT NULL,
+  `statut` enum('en_cours','payee','annulee') DEFAULT 'en_cours',
+  `prix_total` decimal(10,2) DEFAULT NULL,
+  `date_commande` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `utilisateur_id` (`utilisateur_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `commande_tickets`
+--
+
+DROP TABLE IF EXISTS `commande_tickets`;
+CREATE TABLE IF NOT EXISTS `commande_tickets` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `commande_id` int DEFAULT NULL,
+  `produit_id` int DEFAULT NULL,
+  `quantite` int DEFAULT NULL,
+  `date_reservation` date DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `commande_id` (`commande_id`),
+  KEY `produit_id` (`produit_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `enclosures`
 --
 
@@ -221,6 +256,49 @@ INSERT INTO `enclosures` (`enclosure_id`, `name`, `description`, `status`, `biom
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `panier`
+--
+
+DROP TABLE IF EXISTS `panier`;
+CREATE TABLE IF NOT EXISTS `panier` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int DEFAULT NULL,
+  `produit_id` int DEFAULT NULL,
+  `quantite` int DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `produit_id` (`produit_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `produits`
+--
+
+DROP TABLE IF EXISTS `produits`;
+CREATE TABLE IF NOT EXISTS `produits` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) NOT NULL,
+  `description` text,
+  `prix` decimal(10,2) NOT NULL,
+  `type` enum('ticket','objet') NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `date_ajout` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `produits`
+--
+
+INSERT INTO `produits` (`id`, `nom`, `description`, `prix`, `type`, `image`, `date_ajout`) VALUES
+(1, 'Pass enfant', 'Pass valable pour les enfants de moins de 18 ans, permettant l\'accès à tout le parc.', 10.00, 'ticket', NULL, '2024-12-16 22:30:58'),
+(2, 'Peluche Renecktoon', 'Profitez de notre adorable Renecktoon avant son lvl 6', 24.99, 'objet', 'images/Peluche Renecktoon.jpg', '2024-12-16 22:33:09');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `reviews`
 --
 
@@ -235,7 +313,7 @@ CREATE TABLE IF NOT EXISTS `reviews` (
   PRIMARY KEY (`review_id`),
   KEY `user_id` (`user_id`),
   KEY `enclosure_id` (`enclosure_id`)
-) ;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `reviews`
@@ -290,7 +368,51 @@ CREATE TABLE IF NOT EXISTS `services` (
   `location` varchar(100) NOT NULL,
   `description` text,
   PRIMARY KEY (`service_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `services`
+--
+
+INSERT INTO `services` (`service_id`, `name`, `location`, `description`) VALUES
+(1, 'Toilettes', '', 'Les toilettes sont gratuits. Merci de les laisser propres après votre passage.'),
+(2, 'Point d\'eau ', '', 'L\'eau des points d\'eau est potable, vous pouvez vous-y abreuver sans risques.'),
+(3, 'Boutique', '', 'Notre boutique est pleine de souvenirs pour que vous puissiez ramener un souvenir de votre incroyable expérience au sein de notre parc.'),
+(4, 'Gare et trajet en train', '', 'Profitez de notre locomotive qui fait le voyage entre Le Vallon des cascades et Le Plateau.'),
+(5, 'Lodge', '', 'Profitez de la vue incroyable sur le Plateau et vivez une expérience formidable dans notre lodge. '),
+(6, 'Tente pédagogique', '', 'Découvrez de façon ludique les particularités du monde sauvage.'),
+(7, 'Café nomade', '', 'Prenez le café où vous ne l\'avez encore jamais pris.'),
+(8, 'Paillote', '', 'Restaurez vous avec nos plats délicieux.'),
+(9, 'Petit café', '', 'Lieux pour commencer la visite en pleine forme.'),
+(10, 'Plateau de jeux', '', 'L\'amusement voici l\'optique de ce service.'),
+(11, 'Espace pique-nique', '', 'Lieux pour se restaurer à l\'air libre.'),
+(12, 'Point de vue', '', 'Profitez des différents points de vue pour prendre de la hauteur et découvrir notre parc sous un nouvel angle.');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `stocktickets`
+--
+
+DROP TABLE IF EXISTS `stocktickets`;
+CREATE TABLE IF NOT EXISTS `stocktickets` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `description` text,
+  `price` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `stocktickets`
+--
+
+INSERT INTO `stocktickets` (`id`, `name`, `description`, `price`) VALUES
+(1, 'Pass Enfant', 'Pass valable pour les enfants de moins de 18 ans, permettant l\'accès à tout le parc.', 10.00),
+(2, 'Pass étudiant', 'Pass valable pour les personnes ayant une carte étudiante, permettant l\'accès à tout le parc.', 15.00),
+(3, 'Pass adulte', 'Pass valable pour les adultes de 18 ans à 64 ans, permettant l\'accès à tout le parc.', 20.00),
+(4, 'Pass sénior', 'Pass valable pour les adultes de plus de 64 ans permettant l\'accès à tout le parc.', 15.00),
+(5, 'Pass Guide', 'Pass permettant de visiter l\'arrière des enclos en présence d\'un soigneur attitré.', 80.00);
 
 -- --------------------------------------------------------
 
@@ -327,7 +449,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `users`
@@ -336,7 +458,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`user_id`, `username`, `password`, `email`, `role`, `created_at`) VALUES
 (5, 'admin', '$2y$10$EmeAhNCYRE6tzz/d/BWEWuRTUAbiaq/.Oa8DfkUjH592rfP.0IDiy', 'mathys.rageade@isen.yncrea.fr', 'admin', '2024-11-29 17:00:38'),
 (3, 'mathys', '$2y$10$1SOF2dhokke5VwvBBY/WiOkSoHXeHKDIoZYqhreUjSbMD4aUFdjIC', 'bloup@superkk.prout', 'user', '2024-11-19 14:09:17'),
-(6, 'thomas', '$2y$10$CG2WDVgNmVzK7EFzEvmi2edQL0WVLbxRzbuDwxsj1yw41zqciYW/q', 'thomas@caca.fr', 'user', '2024-12-11 21:07:19');
+(6, 'thomas', '$2y$10$CG2WDVgNmVzK7EFzEvmi2edQL0WVLbxRzbuDwxsj1yw41zqciYW/q', 'thomas@caca.fr', 'user', '2024-12-11 21:07:19'),
+(7, 'Staulk', '$2y$10$GtiHNy4XwMILsciJbsNP4u.CgckQQpZPk6BYSiCjyCKMcrnTIhi.K', 'fgvyusbf@gmail.com', 'user', '2024-12-16 22:38:25');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
