@@ -9,6 +9,8 @@
     <title>L'Oasis des Faunes</title>
     <!-- laisser style en dehors du dossier pour le moment -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animaux.css">
+    <script src="Enclos3.js" defer></script>
 </head>
 
 <body>
@@ -110,14 +112,25 @@
 
     </div>
 
-    
 <!-- </div> -->
-
+    
     <!-- Page principale (modifications possibles)-->
 
-    <h1 class="titre_de_bienvenue">Bienvenue à L'Oasis des Faunes</h1>
 
-    <img src="images/PLANS-DU-PARC-2024-WEB-FR-1.jpg" class="image1">
+    <main>
+
+    <h1 class="titre_de_bienvenue">
+        Bienvenue à L'Oasis des Faunes
+    </h1>
+    <div>
+        <section>
+            <h2>
+                Plan du parc
+            </h2>
+            <img src="images/PLANS-DU-PARC-2024-WEB-FR-1.jpg" class="image1">
+        </section>
+    </div>
+
 
     <img src="images/craiyon_161456_personnage_crocodile.png" class="image3">
     <img src="images/comic-book-bubble-2684015_1280.png" class="image4">
@@ -147,8 +160,38 @@
 
     <img src="images/Parchemin.png" class="image5">
 
+    <!-- carrousel
+    <div class="slide-container">
+        <div class="custom-slider fade">
+            <div class="slide-index">1/3</div>
+            <img class="slide-img" src="zoo/carousel/images/animaux/jpg/Bison.jpg">
+            <div class="slide-text">Bison</div>
+        </div>
+        <div class="custom-slider fade">
+            <div class="slide-index">2/3</div>
+            <img class="slide-img" src="zoo/carousel/images/animaux/jpg/Daim.jpg">
+            <div class="slide-text">Daim</div>
+        </div>
+        <div class="custom-slider fade">
+            <div class="slide-index">3/3</div>
+            <img class="slide-img" src="zoo/carousel/images/animaux/jpg/Tortue.jpg">
+            <div class="slide-text">Tortue</div>
+        </div>
+        <a class="prev" onclick="plusSlides(-1)"><</a>
+        <a class="next" onclick="plusSlides(1)">></a>
+    </div>
+    <br>
+    <div class="slide-dot">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+    -->
+
     <!-- TEMPORAIRE : NE PAS TOUCHER -->
     <a href="recherche_de_chemin/pathfinding.php">TEST VERS RECHERCHE DE CHEMIN</a>
+
+</main>
 
     <footer>
 
@@ -158,37 +201,39 @@
                 <h3>Nos Services</h3>
                 <ul class="liste-services">
                     <li><a href="boutique.html">Boutique</a></li>
+                    <li><a href="gare.html">Gare</a></li>
+                    <li><a href="logement.html">Logement</a></li>
                 </ul>
             </div>
 
             <div class="bloc footer-contact">
                 <h3>Restons en contact</h3>
-                <p>55-55-55-55-55</p>
-                <p>supportclient@contact.com</p>
-                <p>Le Parc Imaginaire, 83200, Toulon</p>
+                <p>+33 (0)4 90 55 19 12</p>
+                <p>contact@parcanimalierlabarben.com</p>
+                <p>Route du Château 13330 La Barben France</p>
             </div>
 
             <div class="bloc footer-horaires">
                 <h3>Les horaires</h3>
                 <ul class="liste-horaires">
-                    <li>✅ Lundi 10h-19h</li>
-                    <li>✅ Mardi 10h-19h</li>
-                    <li>✅ Mercredi 10h-19h</li>
-                    <li>✅ Jeudi 10h-19h</li>
-                    <li>✅ Vendredi 10-19h</li>
-                    <li>❌ Samedi fermé</li>
-                    <li>❌ Dimanche fermé</li>
+                    <li>✅ Lundi 9h-19h</li>
+                    <li>❌ Mardi fermé</li>
+                    <li>✅ Mercredi 9h-19h</li>
+                    <li>❌ Jeudi fermé</li>
+                    <li>✅ Vendredi 9h-19h</li>
+                    <li>✅ Samedi 9h-19h</li>
+                    <li>✅ Dimanche 9h-19h</li>
                 </ul>
             </div>
 
             <div class="bloc footer-medias">
                 <h3>Nos réseaux</h3>
                 <ul class="liste-media">
-                    <li><a href="#"><ion-icon name="logo-facebook"></ion-icon>Facebook</a></li>
-                    <li><a href="#"><ion-icon name="logo-instagram"></ion-icon>Instagram</a></li>
-                    <li><a href="#"><ion-icon name="logo-twitter"></ion-icon>Twitter</a></li>
-                    <li><a href="#"><ion-icon name="logo-github"></ion-icon>Github</a></li>
-                    <li><a href="#"><ion-icon name="logo-youtube"></ion-icon>Youtube</a></li>
+                    <li><a href="https://www.facebook.com"><ion-icon name="logo-facebook"></ion-icon>Facebook</a></li>
+                    <li><a href="https://www.instagram.com"><ion-icon name="logo-instagram"></ion-icon>Instagram</a></li>
+                    <li><a href="https://x.com"><ion-icon name="logo-twitter"></ion-icon>Twitter</a></li>
+                    <li><a href="https://github.com"><ion-icon name="logo-github"></ion-icon>Github</a></li>
+                    <li><a href="https://www.youtube.com"><ion-icon name="logo-youtube"></ion-icon>Youtube</a></li>
                 </ul>
             </div>
 

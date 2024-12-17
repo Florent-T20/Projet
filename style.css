@@ -268,12 +268,14 @@ header {
 
 /* Page principale (modifications possibles) */
 
+/* Message de bienvenue */
 .titre_de_bienvenue {
     position: relative;
     top: 150px;
     text-align: center;
 }
 
+/* plan du parc */
 .image1 {
     /* margin-top: -640px; */
     position: relative;
@@ -284,11 +286,13 @@ header {
     border: 5px solid #000;
 }
 
+/* logo */
 .image2 {
     width: 5%;
     border-radius: 50%;
 }
 
+/* croco */
 .image3 {
     position: relative;
     width: 50%;
@@ -296,6 +300,7 @@ header {
     left: 50px;
 }
 
+/* bubble */
 .image4 {
     position: relative;
     width: 50%;
@@ -304,6 +309,7 @@ header {
     padding-right: none;
 }
 
+/* text_bubble */
 .B {
     text-align: center;
     position: relative;
@@ -375,6 +381,7 @@ header {
     height: 220px;
 }
 
+/* footer */
 footer {
     flex-shrink: 0;
     border-top: 1px dashed #000;
