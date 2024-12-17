@@ -116,7 +116,7 @@ try {
 
     
     <!-- Custom styles for this template -->
-    <link href="carousel.css" rel="stylesheet">
+    <link href="styles/carousel.css" rel="stylesheet">
   </head>
   <body>
 
@@ -206,7 +206,7 @@ try {
 
         <!-- RECHERCHE SUR LA PAGE -->
         <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="SearchInput">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
 
@@ -352,6 +352,9 @@ try {
 
 
 </main>
+
+<!-- search bar -->
+<script src="scripts/SearchBar.js"></script>
 
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 

@@ -27,6 +27,10 @@ body {
   height: 32rem;
 }
 
+/* search bar */
+.hidden {
+  display: none;
+}
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
