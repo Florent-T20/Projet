@@ -36,5 +36,7 @@
 
     ?>
 
+<p><a href="../Projet.html">Retour</a></p>
+
 </body>
 </html>

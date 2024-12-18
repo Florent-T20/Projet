@@ -3,7 +3,6 @@
 require_once("access.php");
 
 
-// Connexion à la base de données
 $host = 'localhost';
 $dbname = 'projet_web_2425';
 $user = 'root';
@@ -16,10 +15,6 @@ try {
     die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
 
-
-// récupération des informations utilisateurs
-
-// à finir !!!
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $comment = htmlspecialchars($_POST['comment']);

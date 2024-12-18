@@ -277,6 +277,12 @@ try {
               }
       ?>
 
+      <!-- bouton pour créer un cookie contenant l'id de l'enclos -->
+      <!-- pour les avis -->
+        <form method="POST" action="cookie_handler.php">
+          <button type="submit" name="create_cookie" value="1">Créer le cookie</button>
+        </form>
+
       </div>
       <div class="col-md-5">
         
@@ -1680,10 +1686,115 @@ try {
             <span class="visually-hidden">Next</span>
           </button>
         </div>
+      </div>
+    </div>
+
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+
+        <!-- nom de l'enclos -->
+      <?php
+
+        $stmt = $pdo->prepare("SELECT * FROM enclosures WHERE enclosure_id = 51");
+        $stmt->execute();
+        $enclosure = $stmt->fetch(PDO::FETCH_ASSOC);
+
+      ?>
+
+              <!-- on récupère tous les animaux de l'enclos -->
+      <?php
+        $stmt = $pdo->prepare("SELECT * FROM animals WHERE enclosure_id = 51");
+        $stmt->execute();
+        $animals = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      ?>
+
+        <h2 class="featurette-heading fw-normal lh-1"><?php echo "{$enclosure['name']}";?></h2>
+
+        <!-- affichage des animaux (espèce+nom) de l'enclos -->
+      <?php
+
+              if ($animals) {
+
+                  echo '<p class="lead">Vous trouverez ici les animaux suivants :</p>';
+
+                  foreach ($animals as $index => $row) {
+                    foreach ($row as $key => $value) {
+                      if ($key === 'species') {
+                        echo '<p class="lead">Espèce : ' . htmlspecialchars($value) . '</p>';
+                      }
+                      if ($key === 'name') {
+                        echo '<p class="lead">Nom : ' . htmlspecialchars($value) . '</p>';
+                      }
+                    }
+                    echo '<br />';
+                  }
+              } else {
+                  echo "Aucun animal dans l'enclos.";
+              }
+      ?>
+
+      </div>
+      <div class="col-md-5">
+        
+        <!-- insérer caroussel -->
+        <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+
+          <!-- ne pas toucher ce bouton -->
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+
+          <!-- rajouter des boutons sous cette forme en fonction du nombre d'animaux présents dans l'enclos -->
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        
+        </div>
+        <div class="carousel-inner">
+
+      <?php
+
+        if ($animals) {
+          $isFirst = true;
+          foreach ($animals as $animal) {
+              $activeClass = $isFirst ? ' active' : '';
+              $isFirst = false;
+              
+              echo '
+              <div class="carousel-item' . $activeClass . '">
+                  <img src="' . htmlspecialchars($animal['image']) . '" width="100%" height="100%">
+                  <div class="container">
+                      <div class="carousel-caption text-start">
+                          <h1>' . htmlspecialchars($animal['species']) . '</h1>
+                      </div>
+                  </div>
+              </div>';
+          }
+        } else {
+          echo '<p>Aucune image disponible pour cet enclos.</p>';
+        }
+
+      ?>
+
+
+          </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
 
 
       </div>
     </div>
+
+    <hr class="featurette-divider">
 
 
     <!-- /END THE FEATURETTES -->

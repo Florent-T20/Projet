@@ -1,6 +1,5 @@
 <?php
 
-// Connexion à la base de données
 $host = 'localhost';
 $dbname = 'projet_web_2425';
 $user = 'root';
