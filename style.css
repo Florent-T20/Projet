@@ -292,6 +292,7 @@ main {
 main h1 {
     font-size: 2em;
     margin-bottom: 20px;
+    font-family: "Rye", serif;
 }
 
 .section-large {
