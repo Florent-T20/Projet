@@ -322,6 +322,18 @@ main h1 {
     text-align: center;
 }
 
+.croco {
+    width: 300px;
+    height: 300px;
+    margin-left: -15%;
+}
+
+.bubble {
+    width: 150px;
+    height: 150px;
+    margin-left: -20%;
+}
+
 /* ------------------------------------------------------------------------------------------------------- */
 
 
