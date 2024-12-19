@@ -1,12 +1,12 @@
 .custom-slider { display: none; }
 
 .slide-container {
-    width: 1400px;
+    max-width: 800px;
     position: absolute;
-    top: 85%;
+    
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 5px solid #000;
 }
 .prev, .next {
     cursor: pointer;
@@ -51,10 +51,7 @@
     object-fit: cover;
     object-position: center;
 }
-.slide-dot{ 
-    text-align: center;
-    margin-top: 45%;
-}
+.slide-dot{ text-align: center;}
 .dot {
     cursor: pointer;
     height: 10px;

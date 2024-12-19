@@ -268,28 +268,10 @@ header {
 
 /* Page principale (modifications possibles) */
 
-/* logo */
-.image2 {
-    width: 5%;
-    border-radius: 50%;
-}
-
 /* Message de bienvenue */
 .titre_de_bienvenue {
     position: relative;
-    margin-top: 10%;
-    text-align: center;
-}
-
-.titre_carrousel {
-    position: relative;
-    margin-top: 5%;
-    text-align: center;
-}
-
-.titre_plan_du_parc {
-    position: relative;
-    margin-top: 10%;
+    top: 150px;
     text-align: center;
 }
 
@@ -299,15 +281,64 @@ header {
     position: relative;
     width: 80%;
     z-index: 0;
-    margin-top: 3%;
+    margin-top: 200px;
     left: 10%;
     border: 5px solid #000;
+}
+
+/* logo */
+.image2 {
+    width: 5%;
+    border-radius: 50%;
+}
+
+/* croco */
+.image3 {
+    position: relative;
+    width: 50%;
+    top: 400px;
+    left: 50px;
+}
+
+/* bubble */
+.image4 {
+    position: relative;
+    width: 50%;
+    top: -600px;
+    left: 500px;
+    padding-right: none;
+}
+
+/* text_bubble */
+.B {
+    text-align: center;
+    position: relative;
+    top: -1020px;
+    margin-left: 270px;
+    
+}
+
+.image5 {
+    position: relative;
+    left: 190px;
+    top: -700px;
+}
+
+.info {
+    text-align: center;
+    margin-left: 400px;
+    margin-right: 400px;
+    font-size: 32px;
+    position: relative;
+    top: 200px;
+    z-index: 1;
 }
 
 
 /* Conteneur du menu avec sous-menu */
 .menu-item {
     position: relative;
+
 }
 
 /* Sous-menu caché par défaut */
