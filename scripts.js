@@ -1,115 +1,26 @@
-// Tableau pour stocker les articles dans le panier
-let cart = [];
+document.addEventListener("DOMContentLoaded", function() {
+  // Écouteur pour le bouton "Mon Panier"
+  const cartButton = document.getElementById("cart-button");
+  const cartPopup = document.getElementById("cart-popup");
+  const closePopupButton = document.getElementById("close-cart-btn");
 
-// Sélectionner les éléments nécessaires
-const cartButton = document.getElementById('cart-button');
-const cartContainer = document.getElementById('cart');
-const cartItemsList = document.getElementById('cart-items');
-const cartTotal = document.getElementById('cart-total');
-
-// Charger le panier depuis le localStorage (si disponible)
-function loadCartFromLocalStorage() {
-  const savedCart = localStorage.getItem('cart');
-  if (savedCart) {
-    cart = JSON.parse(savedCart);
-    updateCart();
-  }
-}
-
-// Sauvegarder le panier dans le localStorage
-function saveCartToLocalStorage() {
-  localStorage.setItem('cart', JSON.stringify(cart));
-}
-
-// Fonction pour mettre à jour le panier
-function updateCart() {
-  cartItemsList.innerHTML = '';
-  let total = 0;
-
-  // Créer une nouvelle liste d'articles dans le panier
-  cart.forEach(item => {
-    const listItem = document.createElement('li');
-    listItem.innerHTML = `
-      ${item.name} - €${item.price.toFixed(2)} x ${item.quantity}
-      <button class="decrease-quantity" data-name="${item.name}">-</button>
-    `;
-    cartItemsList.appendChild(listItem);
-
-    total += item.price * item.quantity;
+  // Ouvrir le popup de panier
+  cartButton.addEventListener("click", function() {
+    if (!cartPopup.classList.contains("show")) {
+      cartPopup.classList.add("show");  // Ajoute la classe pour afficher le panier
+    }
   });
 
-  // Mettre à jour le total du panier
-  cartTotal.textContent = `€${total.toFixed(2)}`;
+  // Fermer le popup de panier
+  closePopupButton.addEventListener("click", function(event) {
+    event.stopPropagation();  // Empêche la propagation de l'événement
+    cartPopup.classList.remove("show");  // Retire la classe pour masquer le panier
+  });
 
-  // Sauvegarder dans le localStorage
-  saveCartToLocalStorage();
-}
-
-// Ajouter un article au panier
-function addToCart(event) {
-  const offer = event.target.closest('.offer');
-  const name = offer.querySelector('h3').textContent;
-  const price = parseFloat(offer.querySelector('.price').textContent.replace('€', ''));
-
-  // Vérifier si l'article est déjà dans le panier
-  const existingItem = cart.find(item => item.name === name);
-
-  if (existingItem) {
-    // Si l'article existe déjà, augmenter sa quantité
-    existingItem.quantity += 1;
-  } else {
-    // Sinon, ajouter un nouvel article avec quantité 1
-    cart.push({ name, price, quantity: 1 });
-  }
-
-  // Mettre à jour le panier
-  updateCart();
-}
-
-// Réduire la quantité d'un article
-function decreaseQuantity(event) {
-  const name = event.target.getAttribute('data-name');
-  const item = cart.find(item => item.name === name);
-
-  if (item && item.quantity > 1) {
-    // Si l'article existe et que la quantité est supérieure à 1, diminuer la quantité
-    item.quantity -= 1;
-    updateCart();
-  } else {
-    // Si la quantité est 1, retirer l'article du panier
-    cart = cart.filter(item => item.name !== name);
-    updateCart();
-  }
-}
-
-// Ajouter des événements aux boutons "Ajouter au panier"
-document.addEventListener('click', (event) => {
-  if (event.target && event.target.classList.contains('add-to-cart')) {
-    addToCart(event);
-  }
-
-  // Si un bouton "-" est cliqué, diminuer la quantité
-  if (event.target && event.target.classList.contains('decrease-quantity')) {
-    decreaseQuantity(event);
-  }
+  // Si on clique en dehors du popup, fermer également le panier
+  window.addEventListener("click", function(event) {
+    if (event.target === cartPopup) {
+      cartPopup.classList.remove("show");  // Ferme le panier si l'utilisateur clique en dehors
+    }
+  });
 });
-
-// Fonction pour afficher/masquer le panier
-cartButton.addEventListener('click', () => {
-  cartContainer.classList.toggle('hidden');
-});
-
-// Gestion du bouton de passage à la caisse
-document.getElementById('checkout-btn').addEventListener('click', () => {
-  if (cart.length === 0) {
-    alert('Votre panier est vide. Veuillez ajouter des articles avant de passer à la caisse.');
-  } else {
-    alert('Merci pour votre achat!');
-    cart = [];
-    updateCart();
-    cartContainer.classList.add('hidden');
-  }
-});
-
-// Charger le panier au démarrage
-window.addEventListener('load', loadCartFromLocalStorage);

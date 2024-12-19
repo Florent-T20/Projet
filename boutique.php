@@ -14,7 +14,7 @@ if (!isUser() && !isAdmin()) {
 
 // connexion à la base de donées
 $host = 'localhost';   // immuable
-$dbname = 'bdd_temp';  // nom temporaire, à modifier au besoin
+$dbname = 'projet_web_2425';  // nom temporaire, à modifier au besoin
 $user = 'root';        // immuable
 $pass = '';            // immuable
 
@@ -97,29 +97,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['checkout'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boutique</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="boutique.css">
 </head>
 <body>
-    <!-- commenraire temporaire
-    <header>
-        <div class="logo">Boutique</div>
-        <nav>
-            <a href="">Accueil</a>
-            <a href="">Boutique</a>
-            <a href="">Panier</a>
-            <a href="">Déconnexion</a>
+<header>
+        <img src="images/craiyon.png" class="image2">
+        <nav class="navigation">
+            <a href="Projet.html">Home</a>
+            <a href="zoo/carousel/index.html">Animaux</a>
+            <span class="menu-item">
+                <a>Services</a>
+                <ul class="submenu">
+                    <li><a href="#">Boutique</a></li>
+                    <li><a href="services.html">Autres</a></li>
+                </ul>
+            </span>
+            <a href="contact.html">Contact</a>
+            <a href="avis.html">Avis</a>
+            <button id="cart-button">Mon Panier</button>
+            <a href="profil.html">Profil</a>
+            <button class="btnLogin-popup">Login</button>
         </nav>
     </header>
--->
+
 
     <main>
-        <section class="produits">
+        <section class="offers">
             <h1>Nos produits</h1>
             <div class="produits-list">
                 <?php foreach ($produits as $produit): ?>
-                    <div class="produit">
-                        <img src="<?= htmlspecialchars($produit['image']) ?>">
+                    <div class="offer">
                         <h3><?= htmlspecialchars($produit['nom']) ?></h3>
                         <p><?= nl2br(htmlspecialchars($produit['description'])) ?></p>
+                        <?php
+                        if ($produit['type'] == 'objet') {
+                        // Si le type est "objet", afficher l'image du produit
+                            echo '<img src="' . htmlspecialchars($produit['image']) . '" alt="Image du produit">';
+                        }
+                        // Si le type est "ticket", on ne fait rien concernant l'image.
+                        ?>
                         <p>Prix: <?= htmlspecialchars($produit['prix']) ?> €</p>
                         <form method="POST" action="ajouter_panier.php">
                             <input type="hidden" name="produit_id" value="<?= $produit['id'] ?>">
@@ -131,37 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['checkout'])) {
             </div>
         </section>
 
-        <!-- je mets ça en commentaire temporairement pour mes tests, parce que la table panier est vide en plus de ne pas être rempli. Perso je trouve ça maladroit de mettre un panier dans la base de données. En vrai pour le panier l'affichage suffit, donc soit en html directement soit en js. 
-
-        <section class="panier">
-            <h2>Votre panier</h2>
-            <form method="POST" action="boutique.php">
-                <table>
-                    <tr>
-                        <th>Produit</th>
-                        <th>Quantité</th>
-                        <th>Prix</th>
-                        <th>Date de réservation</th>
-                    </tr>
-                    <?php foreach ($panier as $produit): ?>
-                        <tr>
-                            <td><?= $produit['nom'] ?></td>
-                            <td><?= $produit['quantite'] ?></td>
-                            <td><?= $produit['prix'] ?> €</td>
-                            <td>
-                                <?php if ($produit['type'] == 'ticket'): ?>
-                                    <input type="date" name="date_reservation_<?= $produit['id'] ?>" required>
-                                <?php else: ?>
-                                    N/A
-                                <?php endif; ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </table>
-                <button type="submit" name="checkout">Passer à la caisse</button>
-            </form>
-        </section>
-    -->
+       
     </main>
 </body>
 </html>
