@@ -273,30 +273,49 @@ header {
     width: 5%;
     border-radius: 50%;
 }
-
-/* Message de bienvenue */
-.titre_de_bienvenue {
-    position: relative;
-    top: 150px;
-    text-align: center;
-}
-
-.titre_plan_du_parc {
-    position: relative;
-    text-align: center;
-    margin-top: 5%;
-}
-
+/* ------------------------------------------------------------------------------------------------------- */
 /* plan du parc */
 .image1 {
     /* margin-top: -640px; */
     position: relative;
     width: 80%;
     z-index: 0;
-    margin-top: 5%;
-    left: 10%;
     border: 5px solid #000;
 }
+
+main {
+    margin-top: 10%;
+    padding: 20px;
+    text-align: center;
+}
+
+main h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.section-large {
+    background-color: #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.articles {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.article {
+    background-color: #bbb;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+}
+
+/* ------------------------------------------------------------------------------------------------------- */
+
+
 
 
 /* Conteneur du menu avec sous-menu */
