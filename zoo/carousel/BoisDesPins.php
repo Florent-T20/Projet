@@ -277,6 +277,12 @@ try {
               }
       ?>
 
+        <!-- Bouton pour créer un cookie contenant l'id de l'enclos -->
+        <form method="POST" action="../../back/cookie_handler.php">
+          <input type="hidden" name="enclos_id" value="10">
+          <button type="submit">Donner un avis</button>
+        </form>
+
       </div>
       <div class="col-md-5">
         
@@ -381,7 +387,11 @@ try {
               echo "Aucun animal dans l'enclos.";
           }
         ?>
-
+        <!-- Bouton pour créer un cookie contenant l'id de l'enclos -->
+        <form method="POST" action="../../back/cookie_handler.php">
+          <input type="hidden" name="enclos_id" value="11">
+          <button type="submit">Donner un avis</button>
+        </form>
       </div>
       <div class="col-md-5">
         
@@ -483,7 +493,11 @@ try {
                   echo "Aucun animal dans l'enclos.";
               }
       ?>
-
+        <!-- Bouton pour créer un cookie contenant l'id de l'enclos -->
+        <form method="POST" action="../../back/cookie_handler.php">
+          <input type="hidden" name="enclos_id" value="12">
+          <button type="submit">Donner un avis</button>
+        </form>
       </div>
       <div class="col-md-5">
         
@@ -588,7 +602,11 @@ try {
               echo "Aucun animal dans l'enclos.";
           }
         ?>
-
+        <!-- Bouton pour créer un cookie contenant l'id de l'enclos -->
+        <form method="POST" action="../../back/cookie_handler.php">
+          <input type="hidden" name="enclos_id" value="13">
+          <button type="submit">Donner un avis</button>
+        </form>
       </div>
       <div class="col-md-5">
         
@@ -691,7 +709,11 @@ try {
                   echo "Aucun animal dans l'enclos.";
               }
       ?>
-
+        <!-- Bouton pour créer un cookie contenant l'id de l'enclos -->
+        <form method="POST" action="../../back/cookie_handler.php">
+          <input type="hidden" name="enclos_id" value="14">
+          <button type="submit">Donner un avis</button>
+        </form>
       </div>
       <div class="col-md-5">
         

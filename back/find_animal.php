@@ -31,11 +31,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Recherche des animaux, ID des enclos, noms des enclos et noms des biomes
         $stmt = $pdo->prepare("
             SELECT 
-                animals.animal_id, animals.name, animals.species,
+                animals.name AS Nom, 
+                animals.species AS Espèce,
                 enclosures.enclosure_id AS enclosure_id, 
                 enclosures.name AS enclosure_name,
-                biomes.name AS biome_name,
-                biomes.color_code AS biome_color
+                biomes.name AS biome_name
             FROM animals
             LEFT JOIN enclosures ON animals.enclosure_id = enclosures.enclosure_id
             LEFT JOIN biomes ON enclosures.biome_id = biomes.biome_id
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 foreach ($row as $key => $value) {
                     // Affichage séparé des champs spécifiques
                     if ($key === 'enclosure_id') {
-                        echo "<tr><td>ID de l'enclos</td>";
+                        echo "<tr><td>Numéro de l'enclos</td>";
                         echo "<td>" . htmlspecialchars($value ?? 'Non défini', ENT_QUOTES, 'UTF-8') . "</td></tr>";
                         continue;
                     }

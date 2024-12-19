@@ -18,7 +18,7 @@ peuvent être dans le même enclos)
 - [ ] Liste des services du parc
 - [ ] Le détails d’un enclos avec un carrousel de photos et une description des animaux
 présents dedans
-- [ ] Les utilisateurs peuvent noter les enclos et laisser un avis
+- [x] Les utilisateurs peuvent noter les enclos et laisser un avis
 - [x] Un compte admin peut mettre un enclos en travaux, et est donc fermé au public.
 - [x] Un compte admin peut ajouter des horaires de repas pour les enclos
 - [x] Possibilité de faire une recherche par animaux pour trouver l’enclos
