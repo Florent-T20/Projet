@@ -11,8 +11,7 @@
 - back : quelques fichiers PHP utiles pour le backend. Ne rien toucher.
 
 ---
-> [!TASKLIST]
-> Liste des choses à faire/faites.
+# TASKLIST
 - [x] Une page de connexion / inscription / profil
 - [x] Liste des enclos, avec les animaux présents dedans (attention, plusieurs animaux
 peuvent être dans le même enclos)
