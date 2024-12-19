@@ -15,8 +15,8 @@
 - [x] Une page de connexion / inscription / profil
 - [x] Liste des enclos, avec les animaux présents dedans (attention, plusieurs animaux
 peuvent être dans le même enclos)
-- [ ] Liste des services du parc
-- [ ] Le détails d’un enclos avec un carrousel de photos et une description des animaux
+- [x] Liste des services du parc
+- [x] Le détails d’un enclos avec un carrousel de photos et une description des animaux
 présents dedans
 - [x] Les utilisateurs peuvent noter les enclos et laisser un avis
 - [x] Un compte admin peut mettre un enclos en travaux, et est donc fermé au public.
