@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mar. 17 déc. 2024 à 17:00
+-- Généré le : jeu. 19 déc. 2024 à 15:58
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -286,7 +286,7 @@ CREATE TABLE IF NOT EXISTS `produits` (
   `image` varchar(255) DEFAULT NULL,
   `date_ajout` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `produits`
@@ -294,7 +294,8 @@ CREATE TABLE IF NOT EXISTS `produits` (
 
 INSERT INTO `produits` (`id`, `nom`, `description`, `prix`, `type`, `image`, `date_ajout`) VALUES
 (1, 'Pass enfant', 'Pass valable pour les enfants de moins de 18 ans, permettant l\'accès à tout le parc.', 10.00, 'ticket', NULL, '2024-12-16 22:30:58'),
-(2, 'Peluche Renecktoon', 'Profitez de notre adorable Renecktoon avant son lvl 6', 24.99, 'objet', 'images/Peluche Renecktoon.jpg', '2024-12-16 22:33:09');
+(2, 'Peluche Renecktoon', 'Profitez de notre adorable Renecktoon avant son lvl 6', 24.99, 'objet', 'images/PelucheRenecktoon.jpg', '2024-12-16 22:33:09'),
+(3, 'Pass étudiant', 'Pass valable pour les personnes ayant une carte étudiante, permettant l\'accès à tout le parc.', 15.00, 'ticket', NULL, '2024-12-19 15:58:26');
 
 -- --------------------------------------------------------
 

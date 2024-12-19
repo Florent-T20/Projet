@@ -279,8 +279,8 @@ try {
 
       <!-- bouton pour créer un cookie contenant l'id de l'enclos -->
       <!-- pour les avis -->
-        <form method="POST" action="cookie_handler.php">
-          <button type="submit" name="create_cookie" value="1">Créer le cookie</button>
+        <form method="POST" action="../../back/cookie_handler.php">
+          <button type="submit" name="create_cookie" value="15">Donner un avis</button>
         </form>
 
       </div>

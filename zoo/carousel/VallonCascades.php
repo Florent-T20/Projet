@@ -1132,6 +1132,9 @@ try {
                       if ($key === 'name') {
                         echo '<p class="lead">Nom : ' . htmlspecialchars($value) . '</p>';
                       }
+                      if ($key === 'description') {
+                        echo '<p class="lead">' . htmlspecialchars($value) . '<p>';
+                      }
                     }
                     echo '<br />';
                   }
@@ -1201,7 +1204,7 @@ try {
 
       </div>
     </div>
-
+<hr class="featurette-divider">
 
     <!-- /END THE FEATURETTES -->
 
