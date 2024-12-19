@@ -269,6 +269,9 @@ try {
                       if ($key === 'name') {
                         echo '<p class="lead">Nom : ' . htmlspecialchars($value) . '</p>';
                       }
+                      if ($key === 'description') {
+                        echo '<p class="lead">Description : ' . $value . '</p>';
+                      }
                     }
                     echo '<br />';
                   }
@@ -380,6 +383,9 @@ try {
                   if ($key === 'name') {
                     echo '<p class="lead">Nom : ' . htmlspecialchars($value) . '</p>';
                   }
+                  if ($key === 'description') {
+                        echo '<p class="lead">Description : ' . $value . '</p>';
+                      }
                 }
                 echo '<br />';
               }
@@ -487,6 +493,9 @@ try {
                       }
                       if ($key === 'name') {
                         echo '<p class="lead">Nom : ' . htmlspecialchars($value) . '</p>';
+                      }
+                      if ($key === 'description') {
+                        echo '<p class="lead">Description : ' . $value . '</p>';
                       }
                     }
                     echo '<br />';
@@ -599,6 +608,9 @@ try {
                   if ($key === 'name') {
                     echo '<p class="lead">Nom : ' . htmlspecialchars($value) . '</p>';
                   }
+                  if ($key === 'description') {
+                        echo '<p class="lead">Description : ' . $value . '</p>';
+                      }
                 }
                 echo '<br />';
               }
@@ -707,6 +719,9 @@ try {
                       }
                       if ($key === 'name') {
                         echo '<p class="lead">Nom : ' . htmlspecialchars($value) . '</p>';
+                      }
+                      if ($key === 'description') {
+                        echo '<p class="lead">Description : ' . $value . '</p>';
                       }
                     }
                     echo '<br />';
@@ -819,6 +834,9 @@ try {
                   if ($key === 'name') {
                     echo '<p class="lead">Nom : ' . htmlspecialchars($value) . '</p>';
                   }
+                  if ($key === 'description') {
+                        echo '<p class="lead">Description : ' . $value . '</p>';
+                      }
                 }
                 echo '<br />';
               }
@@ -927,6 +945,9 @@ try {
                       }
                       if ($key === 'name') {
                         echo '<p class="lead">Nom : ' . htmlspecialchars($value) . '</p>';
+                      }
+                      if ($key === 'description') {
+                        echo '<p class="lead">Description : ' . $value . '</p>';
                       }
                     }
                     echo '<br />';
@@ -1039,6 +1060,9 @@ try {
                   if ($key === 'name') {
                     echo '<p class="lead">Nom : ' . htmlspecialchars($value) . '</p>';
                   }
+                  if ($key === 'description') {
+                        echo '<p class="lead">Description : ' . $value . '</p>';
+                      }
                 }
                 echo '<br />';
               }
@@ -1147,6 +1171,9 @@ try {
                       }
                       if ($key === 'name') {
                         echo '<p class="lead">Nom : ' . htmlspecialchars($value) . '</p>';
+                      }
+                      if ($key === 'description') {
+                        echo '<p class="lead">Description : ' . $value . '</p>';
                       }
                     }
                     echo '<br />';
