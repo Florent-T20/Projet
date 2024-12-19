@@ -12,6 +12,7 @@
 
 ---
 > [!TASKLIST]
+> Liste des choses à faire/faites.
 - [x] Une page de connexion / inscription / profil
 - [x] Liste des enclos, avec les animaux présents dedans (attention, plusieurs animaux
 peuvent être dans le même enclos)
@@ -22,7 +23,7 @@ présents dedans
 - [x] Un compte admin peut mettre un enclos en travaux, et est donc fermé au public.
 - [x] Un compte admin peut ajouter des horaires de repas pour les enclos
 - [x] Possibilité de faire une recherche par animaux pour trouver l’enclos
-- [?] Gestion des biomes (Le belvedere / le bois des pins / le plateau etc…) par code
+- [x] Gestion des biomes (Le belvedere / le bois des pins / le plateau etc…) par code
 couleur et ou section dans les 2 listes
 - [ ] Une billetterie en ligne
 - [x] Proposer une navigation pour aller d’un point donné (enclos, restaurant, gare etc…)
