@@ -1,12 +1,12 @@
 .custom-slider { display: none; }
 
 .slide-container {
-    width: 1000px;
+    width: 1400px;
     position: absolute;
-    
     top: 85%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border: 5px solid #000;
 }
 .prev, .next {
     cursor: pointer;
