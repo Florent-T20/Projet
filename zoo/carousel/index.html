@@ -18,6 +18,10 @@
 <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
+      iframe {
+        width: 100%;
+      }
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -304,6 +308,12 @@
 
 </div><!-- /.container -->
 
+<hr class="featurette-divider">
+<iframe 
+  id="dynamicIframe"
+  src="../../back/find_animal.php">
+</iframe>
+<hr class="featurette-divider">
 
 <!-- FOOTER -->
   <footer class="container">
@@ -319,6 +329,8 @@
 
 <!-- search bar -->
 <script src="scripts/SearchBar.js"></script>
+<!-- dim iframe -->
+<script src="../../ajust_iframe.js"></script>
 
 
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

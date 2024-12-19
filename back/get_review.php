@@ -1,6 +1,5 @@
 <?php
 
-// Connexion à la base de données
 $host = 'localhost';
 $dbname = 'projet_web_2425';
 $user = 'root';
@@ -89,7 +88,7 @@ try {
                             <?= str_repeat('★', $review['rating']) ?>
                             <?= str_repeat('☆', 5 - $review['rating']) ?>
                         </td>
-                        <td><?= nl2br(htmlspecialchars($review['comment'])) ?></td>
+                        <td><?= nl2br($review['comment']) ?></td>
                         <td><?= htmlspecialchars($review['created_at']) ?></td>
                     </tr>
                 <?php endforeach; ?>
