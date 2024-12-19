@@ -55,7 +55,7 @@ try {
     </style>
 </head>
 <body>
-    <h2>Liste des Avis</h2>
+    <h2>Liste des services</h2>
     <table>
         <thead>
             <tr>
