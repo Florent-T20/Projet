@@ -277,6 +277,11 @@ try {
               }
       ?>
 
+        <!-- Bouton pour créer un cookie contenant l'id de l'enclos -->
+        <form method="POST" action="../../back/cookie_handler.php">
+          <input type="hidden" name="enclos_id" value="50">
+          <button type="submit">Donner un avis</button>
+        </form>
       </div>
       <div class="col-md-5">
         

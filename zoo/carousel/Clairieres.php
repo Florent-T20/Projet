@@ -387,7 +387,11 @@ try {
               echo "Aucun animal dans l'enclos.";
           }
         ?>
-
+        <!-- Bouton pour créer un cookie contenant l'id de l'enclos -->
+        <form method="POST" action="../../back/cookie_handler.php">
+          <input type="hidden" name="enclos_id" value="16">
+          <button type="submit">Donner un avis</button>
+        </form>
       </div>
       <div class="col-md-5">
         
@@ -489,7 +493,11 @@ try {
                   echo "Aucun animal dans l'enclos.";
               }
       ?>
-
+        <!-- Bouton pour créer un cookie contenant l'id de l'enclos -->
+        <form method="POST" action="../../back/cookie_handler.php">
+          <input type="hidden" name="enclos_id" value="17">
+          <button type="submit">Donner un avis</button>
+        </form>
       </div>
       <div class="col-md-5">
         
@@ -594,7 +602,11 @@ try {
               echo "Aucun animal dans l'enclos.";
           }
         ?>
-
+        <!-- Bouton pour créer un cookie contenant l'id de l'enclos -->
+        <form method="POST" action="../../back/cookie_handler.php">
+          <input type="hidden" name="enclos_id" value="18">
+          <button type="submit">Donner un avis</button>
+        </form>
       </div>
       <div class="col-md-5">
         
@@ -697,7 +709,11 @@ try {
                   echo "Aucun animal dans l'enclos.";
               }
       ?>
-
+        <!-- Bouton pour créer un cookie contenant l'id de l'enclos -->
+        <form method="POST" action="../../back/cookie_handler.php">
+          <input type="hidden" name="enclos_id" value="19">
+          <button type="submit">Donner un avis</button>
+        </form>
       </div>
       <div class="col-md-5">
         
@@ -802,7 +818,11 @@ try {
               echo "Aucun animal dans l'enclos.";
           }
         ?>
-
+        <!-- Bouton pour créer un cookie contenant l'id de l'enclos -->
+        <form method="POST" action="../../back/cookie_handler.php">
+          <input type="hidden" name="enclos_id" value="20">
+          <button type="submit">Donner un avis</button>
+        </form>
       </div>
       <div class="col-md-5">
         
@@ -905,7 +925,11 @@ try {
                   echo "Aucun animal dans l'enclos.";
               }
       ?>
-
+        <!-- Bouton pour créer un cookie contenant l'id de l'enclos -->
+        <form method="POST" action="../../back/cookie_handler.php">
+          <input type="hidden" name="enclos_id" value="21">
+          <button type="submit">Donner un avis</button>
+        </form>
       </div>
       <div class="col-md-5">
         
@@ -1010,7 +1034,11 @@ try {
               echo "Aucun animal dans l'enclos.";
           }
         ?>
-
+        <!-- Bouton pour créer un cookie contenant l'id de l'enclos -->
+        <form method="POST" action="../../back/cookie_handler.php">
+          <input type="hidden" name="enclos_id" value="22">
+          <button type="submit">Donner un avis</button>
+        </form>
       </div>
       <div class="col-md-5">
         
@@ -1113,7 +1141,11 @@ try {
                   echo "Aucun animal dans l'enclos.";
               }
       ?>
-
+        <!-- Bouton pour créer un cookie contenant l'id de l'enclos -->
+        <form method="POST" action="../../back/cookie_handler.php">
+          <input type="hidden" name="enclos_id" value="23">
+          <button type="submit">Donner un avis</button>
+        </form>
       </div>
       <div class="col-md-5">
         
@@ -1218,7 +1250,11 @@ try {
               echo "Aucun animal dans l'enclos.";
           }
         ?>
-
+        <!-- Bouton pour créer un cookie contenant l'id de l'enclos -->
+        <form method="POST" action="../../back/cookie_handler.php">
+          <input type="hidden" name="enclos_id" value="24">
+          <button type="submit">Donner un avis</button>
+        </form>
       </div>
       <div class="col-md-5">
         
@@ -1321,7 +1357,11 @@ try {
                   echo "Aucun animal dans l'enclos.";
               }
       ?>
-
+        <!-- Bouton pour créer un cookie contenant l'id de l'enclos -->
+        <form method="POST" action="../../back/cookie_handler.php">
+          <input type="hidden" name="enclos_id" value="25">
+          <button type="submit">Donner un avis</button>
+        </form>
       </div>
       <div class="col-md-5">
         
@@ -1426,7 +1466,11 @@ try {
               echo "Aucun animal dans l'enclos.";
           }
         ?>
-
+        <!-- Bouton pour créer un cookie contenant l'id de l'enclos -->
+        <form method="POST" action="../../back/cookie_handler.php">
+          <input type="hidden" name="enclos_id" value="26">
+          <button type="submit">Donner un avis</button>
+        </form>
       </div>
       <div class="col-md-5">
         
@@ -1529,7 +1573,11 @@ try {
                   echo "Aucun animal dans l'enclos.";
               }
       ?>
-
+        <!-- Bouton pour créer un cookie contenant l'id de l'enclos -->
+        <form method="POST" action="../../back/cookie_handler.php">
+          <input type="hidden" name="enclos_id" value="27">
+          <button type="submit">Donner un avis</button>
+        </form>
       </div>
       <div class="col-md-5">
         
@@ -1634,7 +1682,11 @@ try {
               echo "Aucun animal dans l'enclos.";
           }
         ?>
-
+        <!-- Bouton pour créer un cookie contenant l'id de l'enclos -->
+        <form method="POST" action="../../back/cookie_handler.php">
+          <input type="hidden" name="enclos_id" value="28">
+          <button type="submit">Donner un avis</button>
+        </form>
       </div>
       <div class="col-md-5">
         
@@ -1735,7 +1787,11 @@ try {
                   echo "Aucun animal dans l'enclos.";
               }
       ?>
-
+        <!-- Bouton pour créer un cookie contenant l'id de l'enclos -->
+        <form method="POST" action="../../back/cookie_handler.php">
+          <input type="hidden" name="enclos_id" value="51">
+          <button type="submit">Donner un avis</button>
+        </form>
       </div>
       <div class="col-md-5">
         
