@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 19 déc. 2024 à 22:32
+-- Généré le : ven. 20 déc. 2024 à 00:50
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -160,7 +160,23 @@ CREATE TABLE IF NOT EXISTS `commandes` (
   `date_commande` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `utilisateur_id` (`utilisateur_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `commandes`
+--
+
+INSERT INTO `commandes` (`id`, `utilisateur_id`, `statut`, `prix_total`, `date_commande`) VALUES
+(1, 7, 'en_cours', 359.98, '2024-12-19 22:39:19'),
+(2, 7, 'en_cours', 0.00, '2024-12-19 22:39:45'),
+(3, 7, 'en_cours', 104.98, '2024-12-19 22:51:43'),
+(4, 7, 'en_cours', 15.00, '2024-12-19 22:52:02'),
+(5, 7, 'en_cours', 0.00, '2024-12-19 22:57:27'),
+(6, 7, 'en_cours', 0.00, '2024-12-19 23:04:21'),
+(7, 7, 'en_cours', 0.00, '2024-12-19 23:05:49'),
+(8, 7, 'en_cours', 15.00, '2024-12-20 00:30:51'),
+(9, 7, 'en_cours', 0.00, '2024-12-20 00:31:02'),
+(10, 7, 'en_cours', 0.00, '2024-12-20 00:41:27');
 
 -- --------------------------------------------------------
 
@@ -178,7 +194,29 @@ CREATE TABLE IF NOT EXISTS `commande_tickets` (
   PRIMARY KEY (`id`),
   KEY `commande_id` (`commande_id`),
   KEY `produit_id` (`produit_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `commande_tickets`
+--
+
+INSERT INTO `commande_tickets` (`id`, `commande_id`, `produit_id`, `quantite`, `date_reservation`) VALUES
+(1, 1, 1, 1, '0000-00-00'),
+(2, 1, 1, 1, '0000-00-00'),
+(3, 1, 1, 1, '0000-00-00'),
+(4, 1, 2, 1, '0000-00-00'),
+(5, 1, 2, 1, '0000-00-00'),
+(6, 1, 3, 1, '0000-00-00'),
+(7, 1, 3, 1, '0000-00-00'),
+(8, 1, 4, 1, '0000-00-00'),
+(9, 3, 2, 1, '0000-00-00'),
+(10, 3, 2, 1, '0000-00-00'),
+(11, 3, 3, 1, '0000-00-00'),
+(12, 3, 3, 1, '0000-00-00'),
+(13, 3, 3, 1, '0000-00-00'),
+(14, 3, 1, 1, '0000-00-00'),
+(15, 4, 3, 1, '0000-00-00'),
+(16, 8, 3, 1, '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -268,17 +306,7 @@ CREATE TABLE IF NOT EXISTS `panier` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `produit_id` (`produit_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Déchargement des données de la table `panier`
---
-
-INSERT INTO `panier` (`id`, `user_id`, `produit_id`, `quantite`) VALUES
-(1, 7, 1, 3),
-(2, 7, 2, 2),
-(3, 7, 3, 2),
-(4, 7, 4, 1);
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -296,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `produits` (
   `image` varchar(255) DEFAULT NULL,
   `date_ajout` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Déchargement des données de la table `produits`
@@ -304,11 +332,17 @@ CREATE TABLE IF NOT EXISTS `produits` (
 
 INSERT INTO `produits` (`id`, `nom`, `description`, `prix`, `type`, `image`, `date_ajout`) VALUES
 (1, 'Pass enfant', 'Pass valable pour les enfants de moins de 18 ans, permettant l\'accès à tout le parc.', 10.00, 'ticket', NULL, '2024-12-16 22:30:58'),
-(2, 'Peluche Renecktoon', 'Profitez de notre adorable Renecktoon avant son lvl 6', 24.99, 'objet', 'images/PelucheRenecktoon.jpg', '2024-12-16 22:33:09'),
-(3, 'Pass étudiant', 'Pass valable pour les personnes ayant une carte étudiante, permettant l\'accès à tout le parc.', 15.00, 'ticket', NULL, '2024-12-19 15:58:26'),
-(4, 'Billet avion', 'Billet d\'avion pour un vol international', 250.00, 'ticket', NULL, '2024-12-19 16:25:48'),
-(5, 'Billet avion', 'Billet d\'avion pour un vonational', 250.00, 'ticket', NULL, '2024-12-19 16:26:06'),
-(6, ' avion', 'Billet d\'avion pour un vonational', 250.00, 'ticket', NULL, '2024-12-19 16:26:22');
+(7, 'Pass étudiant', 'Pass valable pour les personnes ayant une carte étudiante, permettant l\'accès à tout le parc.', 15.00, 'ticket', NULL, '2024-12-20 00:34:54'),
+(8, 'Pass adulte', 'Pass valable pour les adultes de 18 ans à 64 ans, permettant l\'accès à tout le parc.', 20.00, 'ticket', NULL, '2024-12-20 00:37:34'),
+(9, 'Pass sénior', 'Pass valable pour les adultes de plus de 64 ans permettant l\'accès à tout le parc.', 15.00, 'ticket', NULL, '2024-12-20 00:38:10'),
+(10, 'Peluche Renecktoon', 'Profitez de notre adorable Renecktoon avant son lvl 6', 24.99, 'objet', 'images/PelucheRenecktoon.jpg', '2024-12-20 00:40:14'),
+(11, 'Peluche Tigrou', 'Damn les gens c\'est Tibo Inshape', 19.99, 'objet', 'images/Peluche tigre.jpg', '2024-12-20 00:44:20'),
+(12, 'Peluche Cassio', 'Profitez de notre Cassio tant que Rose noire est broken', 19.99, 'objet', 'images/Peluche Cassio.jpeg', '2024-12-20 00:45:44'),
+(13, 'Peluche Cocotte', 'Câliner Cocotte l\'hippopotame la plus gentille du parc', 19.99, 'objet', 'images/Peluche hipo.jpg', '2024-12-20 00:46:56'),
+(14, 'Peluche Mustébouée', 'Vous avez la priorité avec aquajet', 19.99, 'objet', 'images/Peluche loutre.jpg', '2024-12-20 00:47:47'),
+(15, 'Peluche Flash', 'Plus rapide que la lumière je suis Flash', 19.99, 'objet', 'images/Peluche guépard.jpg', '2024-12-20 00:48:44'),
+(16, 'Peluche Hecarim', 'N\'ayez pas peur il n\'a pas encore son ult', 19.99, 'objet', 'images/Peluche Hecarim.jpg', '2024-12-20 00:49:25'),
+(17, 'Peluche Lilia', 'Peluche parfaite pour s\'endormir avec un ult', 19.99, 'objet', 'images/Peluche biche.jpg', '2024-12-20 00:50:19');
 
 -- --------------------------------------------------------
 
