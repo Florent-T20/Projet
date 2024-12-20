@@ -9,6 +9,8 @@
 - BDD : base de données du site, à copier localement chez vous pour faire des tests.
 - zoo : le carrousel des enclos. Ne rien toucher dedans.
 - back : quelques fichiers PHP utiles pour le backend. Ne rien toucher.
+- script : les fichiers JS principaux
+- style : les fichiers de style principaux
 
 ---
 # TASKLIST
