@@ -13,7 +13,7 @@ if (!isUser() && !isAdmin()) {
 
 // connexion à la base de données
 $host = 'localhost';   // immuable
-$dbname = 'projet_web_2425';  // nom temporaire, à modifier au besoin
+$dbname = 'bdd_temp';  // nom temporaire, à modifier au besoin
 $user = 'root';        // immuable
 $pass = '';            // immuable
 
