@@ -31,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Recherche des animaux, ID des enclos, noms des enclos et noms des biomes
         $stmt = $pdo->prepare("
             SELECT 
+                animals.animal_id AS ID_animal,
                 animals.name AS Nom, 
                 animals.species AS Espèce,
                 enclosures.enclosure_id AS enclosure_id, 

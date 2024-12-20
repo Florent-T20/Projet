@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avis</title>
     <!-- laisser style en dehors du dossier pour le moment -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
 </head>
 
 <body>
@@ -24,13 +24,13 @@
             <span class="menu-item">
                 <a >Services</a>
                 <ul class="submenu">
-                    <li><a href="boutique.html">Boutique</a></li>
+                    <li><a href="back/test.php">Boutique</a></li>
                     <li><a href="services.html">Autres</a></li>
                 </ul>
             </span>
             <a href="contact.html">Contact</a>
             <a href="avis.html">Avis</a>
-            <a href="profil.php">Profil</a>
+            <a href="back/profil.php">Profil</a>
             <button class="btnLogin-popup">Login</button>
         </nav>
     </header>
@@ -44,7 +44,7 @@
         <!-- Formulaire de Login -->
         <div class="form-box login">
             <h2>Login</h2>
-            <form action="login.php" method="POST">
+            <form action="back/login.php" method="POST">
                 <input type="hidden" name="login" value="1">
                 <div class="input-box">
                     <span class="icon">
@@ -74,7 +74,7 @@
         <!-- Formulaire d'Enregistrement -->
         <div class="form-box register">
             <h2>Registration</h2>
-            <form action="login.php" method="POST">
+            <form action="back/login.php" method="POST">
                 <input type="hidden" name="register" value="1">
                 <div class="input-box">
                     <span class="icon">
@@ -119,11 +119,11 @@
     style="width: 100%; border: none; top: 100px; position: relative; background-color: white;">
 </iframe>
 
-<script src="ajust_iframe.js"></script>
+<script src="script/ajust_iframe.js"></script>
 <!-- fin temporaire -->
 
 
-<script src="script.js"></script>
+<script src="script/script.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
