@@ -50,15 +50,10 @@ if (isUser() || isAdmin()) {
 }
 
 // Traitement de la commande lors du clic sur le bouton "Passer à la caisse"
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['checkout'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['checkout'])) {
     // Vérifier que tous les tickets ont une date de réservation
     $erreur_reservation = false;
-    foreach ($panier as $produit) {
-        if ($produit['type'] == 'ticket' && empty($_POST['date_reservation_' . $produit['id']])) {
-            $erreur_reservation = true;
-            break;
-        }
-    }
+
 
     if ($erreur_reservation) {
         echo '<script>alert("Veuillez spécifier les dates de réservation pour tous les tickets.")</script>';
@@ -168,10 +163,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['checkout'])) {
                         <td><?= htmlspecialchars($produit['quantite']) ?></td>
                         <td><?= htmlspecialchars($produit['prix']) ?> €</td>
                         <td>
+                        <button class="remove-item">Supprimer</button>
+                        <button class="update-quantity">Mettre à jour</button>
+                        </td>
+                        <td>
                             <?php if ($produit['type'] == 'ticket'): ?>
                                 <input type="date" name="date_reservation_<?= $produit['id'] ?>" required>
                             <?php else: ?>
-                                N/A
                             <?php endif; ?>
                         </td>
                     </tr>
