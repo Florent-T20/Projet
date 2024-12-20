@@ -81,7 +81,7 @@ require_once("access.php");
     style="width: 90%; border: none; position: relative; background-color: white;">
 </iframe>
 
-<script src="../ajust_iframe.js"></script>
+<script src="../script/ajust_iframe.js"></script>
 
 </body>
 </html>
