@@ -24,7 +24,7 @@ présents dedans
 - [x] Possibilité de faire une recherche par animaux pour trouver l’enclos
 - [x] Gestion des biomes (Le belvedere / le bois des pins / le plateau etc…) par code
 couleur et ou section dans les 2 listes
-- [ ] Une billetterie en ligne
+- [x] Une billetterie en ligne
 - [x] Proposer une navigation pour aller d’un point donné (enclos, restaurant, gare etc…)
 vers un point d'arrivé
 ---
