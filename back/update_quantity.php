@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('back/access.php');
+require_once('access.php');
 
 if (isUser() || isAdmin()) {
   if (isset($_GET['product_id']) && isset($_GET['quantity'])) {

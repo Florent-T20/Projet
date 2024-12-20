@@ -2,7 +2,7 @@
 
 // session lancée
 // vérifie aussi s'il existe déjà une session
-require_once('back/access.php');
+require_once('access.php');
 
 // si qqun s'est connecté, alors on ne peut plus se connecter/s'enregistrer : on est redirigé vers la page d'accueil
 if (isAdmin() || isUser()) {
@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 if (!empty($message)):
     echo htmlspecialchars($message);
-    echo "<br><a href='Projet.html'>Retourner à la page d'accueil</a>";
+    echo "<br><a href='../Projet.html'>Retourner à la page d'accueil</a>";
 endif;
 
 ?>

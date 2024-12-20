@@ -2,12 +2,12 @@
 
 // cf. le fichier
 // permet de vérifier si un utilisateur est connecté ou non
-require_once('back/access.php');
+require_once('access.php');
 
 // on vérifie que l'utilisateur soit connecté
 if (!isUser() && !isAdmin()) {
     echo '<script>alert("Vous devez être connecté pour accéder à la boutique.")</script>';
-    echo '<script>window.location.href = "Projet.html";</script>';
+    echo '<script>window.location.href = "../Projet.html";</script>';
     exit();
 }
 
@@ -97,26 +97,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['checkout'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boutique</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="boutique.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/boutique.css">
 </head>
 <body>
 <header>
-    <img src="images/craiyon.png" class="image2">
+    <img src="../images/craiyon.png" class="image2">
     <nav class="navigation">
-        <a href="Projet.html">Home</a>
-        <a href="zoo/carousel/index.html">Animaux</a>
+        <a href="../Projet.html">Home</a>
+        <a href="../zoo/carousel/index.html">Animaux</a>
         <span class="menu-item">
             <a>Services</a>
             <ul class="submenu">
                 <li><a href="#">Boutique</a></li>
-                <li><a href="services.html">Autres</a></li>
+                <li><a href="../services.html">Autres</a></li>
             </ul>
         </span>
-        <a href="contact.html">Contact</a>
-        <a href="avis.html">Avis</a>
+        <a href="../contact.html">Contact</a>
+        <a href="../avis.html">Avis</a>
         <button id="cart-button">Mon Panier</button>
-        <a href="profil.html">Profil</a>
+        <a href="profil.php">Profil</a>
         <button class="btnLogin-popup">Login</button>
     </nav>
 </header>
@@ -183,8 +183,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['checkout'])) {
     </div>
 </main>
 
-<script src="script.js"></script>
-<script src="scripts.js"></script>
+<script src="../script/script.js"></script>
+<script src="../script/scripts.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>

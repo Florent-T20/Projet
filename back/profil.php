@@ -1,6 +1,6 @@
 <?php
 
-require_once('back/access.php');
+require_once('access.php');
 
 ?>
 
@@ -19,7 +19,7 @@ require_once('back/access.php');
 if (isAdmin() || isUser()) {
 
     // Si la session existe, afficher le formulaire
-    echo '<form action="back/logout.php" method="post">
+    echo '<form action="logout.php" method="post">
             <button type="submit">Se déconnecter</button>
           </form>';
 
@@ -340,7 +340,7 @@ if (isAdmin() || isUser()) {
 }
 
 echo "<hr />";
-echo '<a href="Projet.html">Retourner à l\'accueil.</a>';
+echo '<a href="../Projet.html">Retourner à l\'accueil.</a>';
 
 ?>
 

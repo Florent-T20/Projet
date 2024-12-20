@@ -199,7 +199,7 @@ try {
 
           <!-- A PERSONNALISER -->
           <li class="nav-item">
-            <a class="nav-link" href="../../profil.php">Profil</a>
+            <a class="nav-link" href="../../back/profil.php">Profil</a>
           </li>
 
         </ul>

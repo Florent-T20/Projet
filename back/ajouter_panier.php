@@ -2,7 +2,7 @@
 
 // cf. le fichier
 // permet de vérifier si un utilisateur est connecté ou non
-require_once('back/access.php');
+require_once('access.php');
 
 // on vérifie que l'utilisateur soit connecté
 if (!isUser() && !isAdmin()) {
