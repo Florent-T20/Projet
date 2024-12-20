@@ -80,5 +80,6 @@ try {
             <?php endif; ?>
         </tbody>
     </table>
+
 </body>
 </html>
